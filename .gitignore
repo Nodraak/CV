@@ -1,0 +1,10 @@
+
+# LaTex related stuff
+*.aux
+*.log
+*.out
+
+# tests
+cvstyle/
+cvstyle_minimal/
+

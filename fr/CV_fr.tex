@@ -1,26 +1,10 @@
-%
-%\section{Education}
-%\cventry{year--year}{Degree}{Institution}{City}{ \textit{Grade} }{Description}
-%\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
-% arguments 3 to 6 can be left empty
-%\cvitem{title}{ \emph{Title} }
-%\cvitemwithcomment{Language 1}{Skill level}{Comment}
-%\cvdoubleitem{category X}{XXX, YYY, ZZZ}{category Y}{XXX, YYY, ZZZ}
-%\cvlistitem{Item 1}
-%\cvlistitem{Item 1bis}
-%\cvlistdoubleitem{Item 2}{Item 3}
-%
-%------------------------------------------------------------------------------
-
 
 \documentclass[11pt, a4paper]{moderncv}
 
-%\usepackage[frenchb]{babel}
-%\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.85]{geometry}
+\usepackage[scale=0.8]{geometry}
 
-\moderncvstyle{classic} % or casual
+\moderncvstyle{classic}
 \moderncvcolor{blue}
 \nopagenumbers{}
 \setlength{\hintscolumnwidth}{40mm}
@@ -32,18 +16,14 @@
 % Personal data
 %------------------------------------------------------------------------------
 \firstname{Adrien}
-\familyname{Chardon}
+\familyname{CHARDON}
 
-\title{Étudiant ingénieur à l'ECE Paris}
-\address{197 av. Achille Peretti}{92~200, Neuilly-sur-Seine}
-%\mobile{+1~(234)~567~890}
-\phone{06~88~61~25~80}
-%\fax{+3~(456)~789~012}
+\title{Étudiant ingénieur et passionné d'open source \newline Disponible de juin à août 2016}
+\address{197 av. Achille Peretti}{92 200, Neuilly-sur-Seine - France}
+\mobile{+33 6 88 61 25 80}
 \email{adrienchardon@mailoo.org}
 \homepage{www.github.com/Nodraak}
 \extrainfo{Né le 30 janvier 1995}
-%\photo[64pt][0.4pt]{picture}
-%\quote{Some quote (optional)}
 
 
 % Content
@@ -55,61 +35,50 @@
 \mysection{Expérience}
 %------------------------------------------------------------------------------
 
+\mycvitemwithcomment{Été 2015}{Stage chez Findspire (Paris)}{}
 \mycvitemwithcomment{Été 2014}{Réalisation du site associatif iteam.org}{}
+\mycvitemwithcomment{Été 2014}{Contribution au projet open-source Zeste de Savoir}{}
 \mycvitemwithcomment{depuis septembre 2014}{Administration des serveurs de l'iTeam}{(Association de promotion du logiciel libre à l'ECE Paris)}
-\mycvitemwithcomment{Été 2014}{Contribution aux projets open-source progdupeu.pl et zestedesavoir.com}{}
 \mycvitemwithcomment{Juin 2014}{Stage ouvrier (réparation d'ordinateurs) chez Computer Aid International (Londres)}{}
+
+%\cvitem{Mon github}{Skill level.}
 
 \mysection{Compétences informatiques}
 %------------------------------------------------------------------------------
 
 \subsection{Développement}
-\mycvitemwithcomment{Programmation}{C et Python}{Beaucoup de petits projets personnels, ainsi que les exercices à 42.}
+\mycvitemwithcomment{Programmation}{C, Python}{}
 \mycvitemwithcomment{Web - Backend}{Python avec son framework web Django}{}
-
-\mycvitemwithcomment{Web - Frontend}{HTML, CSS (framework foundation), Javascript (JQuery)}{}
-%\mycvitemwithcomment{Bases de données}{MySQL et Sqlite}{}
-\mycvitemwithcomment{}{Notions : Base de données, PHP, Assembleur}{}
-
-%\subsection{Outils informatiques}
-\mycvitemwithcomment{Gestionnaire de version}{Git}{}%{Utilisé à 42 pour le rendu des exercices.}
-\mycvitemwithcomment{}{Shell Unix}{}%{Compilation des programmes en C et administration d'un serveur personnel sous Linux.}
+\mycvitemwithcomment{Web - Frontend}{HTML, CSS (framework Foundation), Javascript (JQuery)}{}
+\mycvitemwithcomment{}{Notions : base de données, assembleur x86, PHP}{}
+\mycvitemwithcomment{Écosystème UNIX}{Bash, vim, git, ...}{}
 
 \subsection{Outils bureautiques}
 \mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
-\cvitem{Suite Office}{Word, Exel, PowerPoint.}
-\cvitem{Systèmes d'exploitation}{Linux (debian), Windows, Mac OSX.}
-
-%\subsection{Réalisations}
-%\cvitem{Mon github}{Skill level.}
-%\cvitem{Site iTeam}{Skill level.}
+\cvitem{Systèmes d'exploitation}{Linux (Debian), Windows}
 
 
 \mysection{Formation}
 %------------------------------------------------------------------------------
 
 \subsection{Diplômes et études}
-\cventry{2014 - 2015}{ECE Paris école d'ingénieurs}{Paris (15)}{}{}{2éme année de prépa intégrée}
-\cventry{Août 2013}{Piscine de 42}{}{}{}{Résussite au concours d'entrée à l'école 42}
-\cventry{2013}{Baccalauréat}{}{}{}{Série scientifique, spécialité mathématiques}
-%\cventry{2010 -- 2013}{Saint Dominique}{Neuilly sur Seine (92)}{}{}{Lycée}
+\cventry{2015 - 2016 \\ \textit{En cours d'obtention}}{Bachelor of Science en électronique}{}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
+\cventry{2013 - 2018 \\ \textit{En cours d'obtention}}{Diplôme d'ingénieur}{}{}{}{ECE Paris école d'ingénieurs - Paris, France}
+%\cventry{Août 2013}{Concours d'entrée de l'école 42 réussi}{}{}{}{École 42 - Paris, France}
+\cventry{2013}{Baccalauréat}{Série scientifique, spécialité mathématiques}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
 
 \subsection{Langues}
-\cventry{Anglais}{Niveau bac, suffisant pour suivre une conversation basique}{}{}{}{Échange scolaire avec un étudiant de Nordfolk (USA) : 2 semaines}
-%\cventry{Allemand}{Notions}{}{}{}{Échange scolaire avec une étudiante de Dresde (Allemagne) : 1 semaine}
-
-%\cvlanguage{Anglais}{Niveau Bac}{Suffisant pour suivre une conversation basique}
-%\cvlanguage{Allemand}{Notions}{LV2 scolaire}
+\cventry{Français}{Langue maternelle}{}{}{}{}
+\cventry{Anglais}{Toefl IBT}{Noté 93/120}{}{}{}
 
 
 \mysection{Passions diverses}
 %------------------------------------------------------------------------------
 
-%\cvitem{Informatique}{Et tout ce qui s'y rapporte, en particulier réalisation de projets personnels.}
 \cvitem{Aéromodélisme}{Construction de maquettes puis pilotage radiocommandé.}
-%\cvitem{Rubik's cube}{}
 \cvitem{Tennis de table}{Quelques années en club et en compétition.}
 %\cvitem{Scoutisme}{Neuf ans en tant que scout et actuellement adjoint au chef de Troupe (encadrement de 20 jeunes de 12 à 17 ans).}
-% roller et elec
+% roller
+% elec, cubesat, impression 3d
 
 \end{document}
