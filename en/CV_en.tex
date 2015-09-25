@@ -1,0 +1,108 @@
+%
+%\section{Education}
+%\cventry{year--year}{Degree}{Institution}{City}{ \textit{Grade} }{Description}
+%\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+% arguments 3 to 6 can be left empty
+%\cvitem{title}{ \emph{Title} }
+%\cvitemwithcomment{Language 1}{Skill level}{Comment}
+%\cvdoubleitem{category X}{XXX, YYY, ZZZ}{category Y}{XXX, YYY, ZZZ}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 1bis}
+%\cvlistdoubleitem{Item 2}{Item 3}
+%
+%------------------------------------------------------------------------------
+
+
+\documentclass[11pt, a4paper]{moderncv}
+
+%\usepackage[frenchb]{babel}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.72]{geometry}
+
+\moderncvstyle{classic} % or casual
+\moderncvcolor{blue}
+\nopagenumbers{}
+\setlength{\hintscolumnwidth}{40mm}
+
+\newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
+\newcommand{\mysection}[1]{\section{\textbf{#1}}}
+
+
+% Personal data
+%------------------------------------------------------------------------------
+\firstname{Adrien}
+\familyname{Chardon}
+
+\title{Engineer student at ECE Paris}
+\address{197 av. Achille Peretti}{92~200, Neuilly-sur-Seine}{France}
+%\mobile{+1~(234)~567~890}
+\phone{(+33)6~88~61~25~80}
+%\fax{+3~(456)~789~012}
+\email{chardond@ece.fr}
+\homepage{www.github.com/Nodraak}
+\extrainfo{Born January 30, 1995}
+%\photo[64pt][0.4pt]{picture}
+%\quote{Some quote (optional)}
+
+
+% Content
+%------------------------------------------------------------------------------
+\begin{document}
+
+\makecvtitle
+
+
+%\subsection{Professional objective}
+%blah
+
+
+\mysection{Computer skills}
+%------------------------------------------------------------------------------
+
+\subsection{Software development}
+\mycvitemwithcomment{Programming skills}{C}{Many personal projects}
+
+\mycvitemwithcomment{Web}{HTML, CSS, JavaScript}{}
+\mycvitemwithcomment{Data base}{MySQL}{Hosted on an Apache server (Linux system)}
+\mycvitemwithcomment{}{PHP}{Access to the database (MySQL)}
+
+\subsection{IT tools}
+\mycvitemwithcomment{Version control}{Git}{}
+\mycvitemwithcomment{}{Shell Unix}{Management of a personal Linux server}
+
+\subsection{Office tools}
+\mycvitemwithcomment{Word processing}{\LaTeX}{}
+\cvitem{Office softwares}{Word, Exel, PowerPoint.}
+\cvitem{Operating systems}{Linux, Windows, Mac OSX.}
+
+%\subsection{Réalisations}
+%\cvitem{Mon github}{Skill level.}
+%\cvitem{Site iTeam}{Skill level.}
+
+
+\mysection{Education}
+%------------------------------------------------------------------------------
+
+\subsection{Studies}
+\cventry{2013 --}{ECE Paris école d'ingénieurs}{Paris (15)}{}{}{}
+\cventry{August, 2013}{\textit{Piscine} of 42}{}{}{}{Achieve in entrance exams of the french IT school \textit{42} (founded by Mr. Niel)}
+\cventry{2013}{High school diplome (in french : \textit{baccalauréat})}{}{}{}{Science option, major subject : mathematics.}
+\cventry{2010 -- 2013}{Saint Dominique}{Neuilly sur Seine (92)}{}{}{High school}
+
+\subsection{Languages}
+\cventry{English}{Medium skills, able to conduct a basic conversation}{}{}{}{}%{Échange scolaire avec un étudiant de Nordfolk (USA) : 2 semaines}
+\cventry{German}{Notions}{}{}{}{}%{Échange scolaire avec une étudiante de Dresde (Allemagne) : 1 semaine}
+
+
+%\mysection{Hobbies}
+%------------------------------------------------------------------------------
+
+%\cvitem{Computer and IT science}%{Et tout ce qui s'y rapporte, en particulier réalisation de projets personnels.}
+%\cvitem{Aéromodélisme}{Construction de maquettes puis pilotage radiocommandé.}
+%\cvitem{Rubik's cube}{}
+%\cvitem{Tennis de table}{Quelques années en club et en compétition.}
+%\cvitem{Scoutisme}{Neuf ans en tant que scout et actuellement adjoint au chef de Troupe (encadrement de 20 jeunes de 12 à 17 ans).}
+
+
+\end{document}
