@@ -2,15 +2,28 @@
 \documentclass[11pt, a4paper]{moderncv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.80]{geometry}
+\usepackage[scale=0.85]{geometry}
+\usepackage[yyyymmdd]{datetime}
+\usepackage[pscoord]{eso-pic}
 
 \moderncvstyle{classic}
 \moderncvcolor{blue}
 \nopagenumbers{}
 \setlength{\hintscolumnwidth}{40mm}
+\renewcommand{\dateseparator}{--}
 
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
 \newcommand{\mysection}[1]{\section{\textbf{#1}}}
+\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \setbox0=\hbox{#3}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}
+    ){
+        \vtop{{\null}\makebox[0pt][c]{\rotatebox[origin=c]{90}{#3}}}
+    }%
+  }%
+}%
 
 
 % Personal data
@@ -18,12 +31,13 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\address{197 av. Achille Peretti}{92 200, Neuilly-sur-Seine - France}
+\title{French engineer student fascinated by free software \newline Available from april to august 2017}
+\address{197 avenue Achille Peretti}{92200, Neuilly-sur-Seine - France}
 \mobile{+33 6 88 61 25 80}
 \email{adrienchardon@mailoo.org}
-\homepage{www.github.com/Nodraak}
+\homepage{nodraak.fr}
+\social[github]{github.com/Nodraak}
 \extrainfo{Born on January 30, 1995} % no birthday if us
-
 
 % Content
 %------------------------------------------------------------------------------
@@ -32,12 +46,15 @@
 \makecvtitle
 
 
+\vspace{-5mm}
 \mysection{Education}
 %------------------------------------------------------------------------------
 
+% todo job xp before ??
+
 \subsection{Studies}
-\cventry{2015 - 2016 \\ \textit{Pending}}{Bachelor of Science in electronics \& IT}{}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
-\cventry{2013 - 2018 \\ \textit{Pending}}{Engineering Degree}{}{}{}{ECE Paris - Paris, France}
+\cventry{2015 - 2016}{Bachelor of Science in electronics \& IT}{}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
+\cventry{2013 - 2018 \\ \textit{Pending}}{Engineering Degree, majoring in embedded systems}{}{}{}{ECE Paris - Paris, France}
 %\cventry{Août 2013}{Concours d'entrée de l'école 42 réussi}{}{}{}{École 42 - Paris, France}
 \cventry{2013}{French baccalauréat (high school degree)}{}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
 
@@ -46,27 +63,33 @@
 \cventry{English}{Toefl IBT}{Scored 93/120}{}{}{}
 
 
-\mysection{Computer science skills}
+\mysection{Technical skills}
 %------------------------------------------------------------------------------
 
-\mycvitemwithcomment{Programming skills}{C}{Low level (sockets, threads), SDL, ...}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests, ...}
+% todo tensorflow opencv docker
+% open source: pdp, zds, munin, doc_python_fr, classrooms
+\mycvitemwithcomment{Programming skills}{C}{Low level (sockets, threads), GUI (SDL).}
+\mycvitemwithcomment{}{Python}{Django, Scipy, requests.}
 \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
 \mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
 \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
-\mycvitemwithcomment{UNIX ecosystem}{Vim, git, bash scripts, ...}{}
-\mycvitemwithcomment{System administration}{Linux (Debian / Ubuntu)}{}
+\mycvitemwithcomment{UNIX ecosystem}{Vim, Git, Bash scripts}{}
+\mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
+\mycvitemwithcomment{Microcontrollers}{AVR (Arduino), PIC (Microchip), ARM (STM32)}{}
 \mycvitemwithcomment{Word processing}{\LaTeX}{}
 
 \mysection{Job experiences}
 %------------------------------------------------------------------------------
 
-\mycvitemwithcomment{Since sept. 2014}{Administration of iTeam's servers}{(Association promoting free softwares at ECE Paris)}
-\mycvitemwithcomment{Autumn 2015}{Student job at Aalborg university (Denmark)}{Development with an Oculus Rift}
+\mycvitemwithcomment{2016-2017 \\ \textit{Currently in function}}{President of iTeam (student association promoting free software at ECE Paris)}{}
+\mycvitemwithcomment{Summer 2016}{Internship at Pulsit}{Prototyping around Arduino.}
+
+\mycvitemwithcomment{Autumn 2015}{Student job at Aalborg university (Denmark)}{Development with an Oculus Rift.}
 \mycvitemwithcomment{Summer 2015}{Internship at Findspire (Paris)}{}
+\mycvitemwithcomment{Since sept. 2014}{Administration of iTeam's servers}{}
 \mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
 \mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
-\mycvitemwithcomment{June 2014}{Internship (computers repairing) at Computer Aid International (London)}{}
+\mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
 
 
 \mysection{Hobbies}
@@ -74,5 +97,6 @@
 
 \cvitem{}{Roller blading, model airplanes, table tennis}
 
+\placetextbox{0.05}{0.08}{\tiny{\today}}
 
 \end{document}
