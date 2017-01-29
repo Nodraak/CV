@@ -31,12 +31,12 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\title{French engineer student fascinated by free software \newline Available from april to august 2017}
+\title{French engineer student fascinated by space \newline technologies, available for an intership between \newline April and August 2017.}
 \address{197 avenue Achille Peretti}{92200, Neuilly-sur-Seine - France}
-\mobile{+33 6 88 61 25 80}
 \email{adrienchardon@mailoo.org}
-\homepage{nodraak.fr}
-\social[github]{github.com/Nodraak}
+\mobile{+33 6 88 61 25 80}
+\homepage{https://nodraak.fr}
+%\social[github]{https://github.com/Nodraak}
 \extrainfo{Born on January 30, 1995} % no birthday if us
 
 % Content
@@ -60,7 +60,7 @@
 
 \subsection{Languages}
 \cventry{French}{Mother tongue}{}{}{}{}
-\cventry{English}{Toefl IBT}{Scored 93/120}{}{}{}
+\cventry{English}{Toefl IBT}{Scored 93/120 in 2015}{}{}{}
 
 
 \mysection{Technical skills}
@@ -71,8 +71,9 @@
 \mycvitemwithcomment{Programming skills}{C}{Low level (sockets, threads), GUI (SDL).}
 \mycvitemwithcomment{}{Python}{Django, Scipy, requests.}
 \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
-\mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
-\mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+%\mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
+\mycvitemwithcomment{}{Web: HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+\mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
 \mycvitemwithcomment{UNIX ecosystem}{Vim, Git, Bash scripts}{}
 \mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
 \mycvitemwithcomment{Microcontrollers}{AVR (Arduino), PIC (Microchip), ARM (STM32)}{}
@@ -88,15 +89,20 @@
 \mycvitemwithcomment{Summer 2015}{Internship at Findspire (Paris)}{}
 \mycvitemwithcomment{Since sept. 2014}{Administration of iTeam's servers}{}
 \mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
-\mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
+%\mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
 \mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
 
 
 \mysection{Hobbies}
 %------------------------------------------------------------------------------
 
-\cvitem{}{Roller blading, model airplanes, table tennis}
+\cvitem{}{Model airplanes, roller blading, table tennis}
+\cvitem{Video games}{Kerbal Space Program}
 
-\placetextbox{0.05}{0.08}{\tiny{\today}}
+\placetextbox{0.05}{0.13}{
+    \tiny{
+        \today~-~\input{|"git rev-parse --short HEAD"}
+    }
+}
 
 \end{document}
