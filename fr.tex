@@ -2,7 +2,7 @@
 \documentclass[11pt, a4paper]{moderncv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.87]{geometry}
+\usepackage[scale=0.89]{geometry}
 \usepackage[yyyymmdd]{datetime}
 \usepackage[pscoord]{eso-pic}
 
@@ -31,12 +31,12 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\title{Étudiant ingénieur et devops passionné d'open source \newline Disponible d'avril à août 2017}
-\address{197 avenue Achille Peretti}{92200, Neuilly-sur-Seine - France}
-\mobile{+33 6 88 61 25 80}
-\email{adrienchardon@mailoo.org}
-\homepage{nodraak.fr}
-\social[github]{github.com/Nodraak}
+\title{Étudiant ingénieur passionné d'informatique et \newline d'électronique, disponible de mai à août 2017}
+%\address{}
+\email{adrienchardon+ghcv@mailoo.org}
+%\mobile{}
+\homepage{https://nodraak.fr/}
+\social[github]{https://github.com/Nodraak/}
 \extrainfo{Né le 30 janvier 1995}
 
 % Content
@@ -46,16 +46,17 @@
 \makecvtitle
 
 \vspace{-12mm}
-\mysection{Expérience}
+\mysection{Expériences}
 %------------------------------------------------------------------------------
 
-\mycvitemwithcomment{2016-2017 \\ \textit{Mandat en cours}}{Président de l'iTeam (association étudiante de promotion du logiciel libre à \\ l'ECE Paris) : coordination des 7 administrateurs dans un contexte de \\ gestion associative}{}
+\mycvitemwithcomment{2016-2017}{Président de l'iTeam (association étudiante de promotion du logiciel libre : \\ coordination des 7 administrateurs dans un contexte de gestion associative}{}
+\mycvitemwithcomment{2016-2017}{Projet en équipe à l'ECE Paris : conception et réalisation d'un robot autonome \\ pour la coupe de France de Robotique (Eurobot)}{}
 \mycvitemwithcomment{Juillet et août 2016}{Stage chez Pulsit (startup incubée à Polytechnique)}{Prototypage autour d'Arduino.}
-\mycvitemwithcomment{Automne 2015}{Job étudiant à l'université d'Aalborg (Danemark)}{Développement autour de l'Oculus Rift.}
+\mycvitemwithcomment{Automne 2015}{Job étudiant à l'université d'Aalborg (Danemark)}{Dev autour de l'Oculus Rift.}
 \mycvitemwithcomment{Juin à août 2015}{Stage développeur chez Findspire (Paris)}{}
-\mycvitemwithcomment{Depuis septembre 2014}{Administration des serveurs de l'iTeam}{}
+\mycvitemwithcomment{Depuis septembre 2014}{Responsable sysadmin des serveurs de l'iTeam}{}
 \mycvitemwithcomment{Été 2014}{Réalisation du site web associatif iteam.org}{}
-\mycvitemwithcomment{Été 2014}{Contribution au projet open-source \textit{Zeste de Savoir}}{}
+% \mycvitemwithcomment{Été 2014}{Contribution au projet open-source \textit{Zeste de Savoir}}{}
 \mycvitemwithcomment{Juin 2014}{Stage ouvrier chez Computer Aid International (Londres)}{}
 
 %\cvitem{Mon github}{Skill level.}
@@ -68,15 +69,24 @@
 % traitement d'images (opencv)
 % virtualisation (docker)
 % open source: pdp, zds, munin, doc_python_fr, classrooms
-\mycvitemwithcomment{Programmation}{C}{Bas niveau (sockets, threads), GUI (SDL).}
+
+\mycvitemwithcomment{Programmation}{C et C++}{Bas niveau (sockets, threads), GUI (SDL), micro-contrôlleurs embarqués.}
 \mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
 \mycvitemwithcomment{}{Asm x86}{Reverse engineering de binaires et conception des systèmes d'exploitation.}
+
+\mycvitemwithcomment{Micro-contrôlleurs}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
+\mycvitemwithcomment{Électronique}{Conception et réalisation de PCB, soudure}{}
+
+\mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
+\mycvitemwithcomment{}{Conteneurs (Docker), monitoring (Munin), load-balancing (HA Proxy)}{}
+
 \mycvitemwithcomment{Web - Backend}{Python (frameworks Django et Flask)}{}
 \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (framework Foundation), Javascript (JQuery)}{}
-\mycvitemwithcomment{Écosystème UNIX}{Vim, Git, scripts Bash}{}
-\mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
-\mycvitemwithcomment{Microcontrolleurs}{AVR (Arduino), PIC (Microchip), ARM (STM32)}{}
+
+\mycvitemwithcomment{Écosystème UNIX}{Git, Vim, scripts Bash, Make, ...}{}
+
 \mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
+
 
 \mysection{Formation}
 %------------------------------------------------------------------------------
@@ -89,18 +99,19 @@
 
 \subsection{Langues}
 \cventry{Français}{Langue maternelle}{}{}{}{}
-\cventry{Anglais}{Toefl IBT}{Noté 93/120}{}{}{}
+\cventry{Anglais}{Toefl IBT}{Noté 93/120 en 2015}{}{}{}
 
 
 \mysection{Passions diverses}
 %------------------------------------------------------------------------------
 
-\cvitem{Aéromodélisme}{Construction de maquettes puis pilotage radiocommandé.}
-\cvitem{Tennis de table}{Quelques années en club et en compétition.}
-%\cvitem{Scoutisme}{Neuf ans en tant que scout et actuellement adjoint au chef de Troupe (encadrement de 20 jeunes de 12 à 17 ans).}
-% roller
-% elec, cubesat, impression 3d
+\cvitem{}{Aéromodélisme, rollers, tennis de table}
+\cvitem{Jeux vidéo}{Kerbal Space Program}
 
-\placetextbox{0.05}{0.08}{\tiny{\today}}
+\placetextbox{0.04}{0.13}{
+    \tiny{
+        \today~-~\input{|"git rev-parse --short HEAD"}
+    }
+}
 
 \end{document}

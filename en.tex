@@ -2,7 +2,7 @@
 \documentclass[11pt, a4paper]{moderncv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.85]{geometry}
+\usepackage[scale=0.89]{geometry}
 \usepackage[yyyymmdd]{datetime}
 \usepackage[pscoord]{eso-pic}
 
@@ -31,13 +31,13 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\title{French engineer student fascinated by space \newline technologies, available for an intership between \newline April and August 2017.}
-\address{197 avenue Achille Peretti}{92200, Neuilly-sur-Seine - France}
-\email{adrienchardon@mailoo.org}
-\mobile{+33 6 88 61 25 80}
+\title{French engineer student fascinated by computer \newline science and electronics, available for an intership \newline between May and August 2017}
+%\address{}
+\email{adrienchardon+ghcv@mailoo.org}
+%\mobile{}
 \homepage{https://nodraak.fr}
 %\social[github]{https://github.com/Nodraak}
-\extrainfo{Born on January 30, 1995} % no birthday if us
+%\extrainfo{Born on January 30, 1995} % no birthday if us
 
 % Content
 %------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
 \makecvtitle
 
 
-\vspace{-5mm}
+\vspace{-12mm}
 \mysection{Education}
 %------------------------------------------------------------------------------
 
@@ -66,28 +66,32 @@
 \mysection{Technical skills}
 %------------------------------------------------------------------------------
 
-% todo tensorflow opencv docker
-% open source: pdp, zds, munin, doc_python_fr, classrooms
-\mycvitemwithcomment{Programming skills}{C}{Low level (sockets, threads), GUI (SDL).}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests.}
+\mycvitemwithcomment{Programming skills}{C and C++}{Low level (sockets, threads), GUI (SDL), embedded microcontroller.}
+\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
 \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
-%\mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
-\mycvitemwithcomment{}{Web: HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+
+\mycvitemwithcomment{Microcontrollers}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
 \mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
-\mycvitemwithcomment{UNIX ecosystem}{Vim, Git, Bash scripts}{}
+
 \mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
-\mycvitemwithcomment{Microcontrollers}{AVR (Arduino), PIC (Microchip), ARM (STM32)}{}
+\mycvitemwithcomment{}{Containers (Docker), monitoring (Munin), load-balancing (HA Proxy)}{}
+
+\mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
+\mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+
+\mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, ...}{}
+
 \mycvitemwithcomment{Word processing}{\LaTeX}{}
 
 \mysection{Job experiences}
 %------------------------------------------------------------------------------
 
-\mycvitemwithcomment{2016-2017 \\ \textit{Currently in function}}{President of iTeam (student association promoting free software at ECE Paris)}{}
+\mycvitemwithcomment{2016-2017}{President of iTeam (student association promoting free software at ECE Paris)}{}
+\mycvitemwithcomment{2016-2017}{Team projet at ECE Paris: design and realization of an autonomous robot \\ for the French Robotic cup (Eurobot)}{}
 \mycvitemwithcomment{Summer 2016}{Internship at Pulsit}{Prototyping around Arduino.}
-
-\mycvitemwithcomment{Autumn 2015}{Student job at Aalborg university (Denmark)}{Development with an Oculus Rift.}
+\mycvitemwithcomment{Autumn 2015}{Student job at Aalborg university (Denmark)}{Dev with an Oculus Rift.}
 \mycvitemwithcomment{Summer 2015}{Internship at Findspire (Paris)}{}
-\mycvitemwithcomment{Since sept. 2014}{Administration of iTeam's servers}{}
+\mycvitemwithcomment{Since sept. 2014}{System administrator of iTeam's servers}{}
 \mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
 %\mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
 \mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
@@ -99,7 +103,7 @@
 \cvitem{}{Model airplanes, roller blading, table tennis}
 \cvitem{Video games}{Kerbal Space Program}
 
-\placetextbox{0.05}{0.13}{
+\placetextbox{0.04}{0.13}{
     \tiny{
         \today~-~\input{|"git rev-parse --short HEAD"}
     }
