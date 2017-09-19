@@ -2,7 +2,9 @@
 \documentclass[11pt, a4paper]{moderncv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.89]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[scale=0.88]{geometry}
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 
@@ -12,7 +14,11 @@
 \setlength{\hintscolumnwidth}{40mm}  % left column
 \renewcommand{\dateseparator}{--}  % format \today
 
+% arguments: left column, item, comment
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
+% arguments: date, job title, company, comment, description
+\newcommand{\mycventry}[5]{\cventry{#1}{#2}{\textsc{#3}}{\textit{#4}}{}{#5}}
+
 \newcommand{\mysection}[1]{\section{\textbf{#1}}}
 \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
   \setbox0=\hbox{#3}% Put <stuff> in a box
@@ -50,63 +56,95 @@
 \makecvtitle
 
 \vspace{-12mm}
-\mysection{Expériences}
-%------------------------------------------------------------------------------
-
-\mycvitemwithcomment{2016-2017}{Président de l'iTeam (association étudiante de promotion du logiciel libre : \\ coordination des 7 administrateurs dans un contexte de gestion associative}{}
-\mycvitemwithcomment{2016-2017}{Projet en équipe à l'ECE Paris : conception et réalisation d'un robot autonome \\ pour la coupe de France de Robotique (Eurobot)}{}
-\mycvitemwithcomment{Juillet et août 2016}{Stage chez Pulsit (startup incubée à Polytechnique)}{Prototypage autour d'Arduino.}
-\mycvitemwithcomment{Automne 2015}{Job étudiant à l'université d'Aalborg (Danemark)}{Dev autour de l'Oculus Rift.}
-\mycvitemwithcomment{Juin à août 2015}{Stage développeur chez Findspire (Paris)}{}
-\mycvitemwithcomment{Depuis septembre 2014}{Responsable sysadmin des serveurs de l'iTeam}{}
-\mycvitemwithcomment{Été 2014}{Réalisation du site web associatif iteam.org}{}
-% \mycvitemwithcomment{Été 2014}{Contribution au projet open-source \textit{Zeste de Savoir}}{}
-\mycvitemwithcomment{Juin 2014}{Stage ouvrier chez Computer Aid International (Londres)}{}
-
-%\cvitem{Mon github}{Skill level.}
-
-\mysection{Compétences techniques}
-%------------------------------------------------------------------------------
-
-% todo
-% intelligence artificielle (reseau de neuronnes avec tensorflow)
-% traitement d'images (opencv)
-% virtualisation (docker)
-% open source: pdp, zds, munin, doc_python_fr, classrooms
-
-\mycvitemwithcomment{Programmation}{C et C++}{Bas niveau (sockets, threads), GUI (SDL), micro-contrôlleurs embarqués.}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
-\mycvitemwithcomment{}{Asm x86}{Reverse engineering de binaires et conception des systèmes d'exploitation.}
-
-\mycvitemwithcomment{Microcontrôleurs}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
-\mycvitemwithcomment{Électronique}{Conception et réalisation de PCB, soudure}{}
-
-\mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
-\mycvitemwithcomment{}{Conteneurs (Docker), monitoring (Munin), load-balancing (HA Proxy)}{}
-
-\mycvitemwithcomment{Web - Backend}{Python (frameworks Django et Flask)}{}
-\mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (framework Foundation), Javascript (JQuery)}{}
-
-\mycvitemwithcomment{Écosystème UNIX}{Git, Vim, scripts Bash, Make, ...}{}
-
-\mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
-
 
 \mysection{Formation}
 %------------------------------------------------------------------------------
 
-\subsection{Diplômes et études}
-\cventry{2015 - 2016}{Bachelor of Science en électronique}{}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
-\cventry{2013 - 2018 \\ \textit{En cours d'obtention}}{Diplôme d'ingénieur, majeure systèmes embarqués}{}{}{}{ECE Paris école d'ingénieurs - Paris, France}
+% \subsection{Études}
+\cventry{2013 - 2018 \\ \textit{En cours d'obtention}}{Diplôme d'ingénieur, majeure systèmes embarqués}{}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
+\cventry{2016}{Bachelor of Science en électronique}{}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
 %\cventry{Août 2013}{Concours d'entrée de l'école 42 réussi}{}{}{}{École 42 - Paris, France}
-\cventry{2013}{Baccalauréat}{Série scientifique, spécialité mathématiques}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
+% \cventry{2013}{Baccalauréat}{Série scientifique, spécialité mathématiques}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
+
+
+\mysection{Expérience}
+%------------------------------------------------------------------------------
+
+\subsection{Expérience rémunérée}
+
+\mycventry{Mai à août 2017}
+    {Stage}
+    {Future Electronics}
+    {Distributeur de composants électroniques - Paris (France)}
+    {Développement IoT sur PSoC 6 (microcontrôleur de Cypress)}
+\mycventry{Juillet et août 2016}
+    {Stage}
+    {WePulsit}
+    {Startup incubée à Polytechnique - Paris (France)}
+    {Amélioration d'un gant pour piloter des drones}
+\mycventry{Automne 2015}
+    {Job étudiant}
+    {AAU}
+    {Université d'Aalborg (Danemark)}
+    {Développement d'une voiture en réalité virtuelle avec un Oculus Rift}
+
+\subsection{Autres expérience pertinentes}
+
+\mycventry{2016-2017}
+    {Mandat associatif (président)}
+    {iTeam}
+    {Association étudiante de promotion du logiciel libre}
+    {Coordination des 7 administrateurs dans un contexte de gestion associative}
+\mycventry{2016-2017}
+    {Projet en équipe}
+    {ECE Paris}
+    {Projet sur 1 an avec 5 camarades}
+    {Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
+\mycventry{2014-2016}
+    {Sysadmin}
+    {iTeam}
+    {Association étudiante de promotion du logiciel libre}
+    {Responsable des serveurs : site web, email, IRC, ...}
+
+% \mycvitemwithcomment{Juin à août 2015}{Stage développeur chez Findspire (Paris)}{}
+% \mycvitemwithcomment{Été 2014}{Réalisation du site web associatif iteam.org}{}
+% \mycvitemwithcomment{Été 2014}{Contribution au projet open-source \textit{Zeste de Savoir}}{}
+% \mycvitemwithcomment{Juin 2014}{Stage ouvrier chez Computer Aid International (Londres)}{}
+
+%\cvitem{Mon github}{Skill level.}
+
+\mysection{Compétences}
+%------------------------------------------------------------------------------
+
+
+\subsection{Compétences techniques}
+
+% open source: pdp, zds, munin, doc_python_fr, classrooms, mbed
+
+\mycvitemwithcomment{Programmation}{C et C++}{Bas niveau (sockets, threads), GUI (SDL), microcontrôleurs embarqués.}
+\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
+% \mycvitemwithcomment{}{Asm x86}{Reverse engineering de binaires et conception des systèmes d'exploitation.}
+
+\mycvitemwithcomment{Électronique}{Conception et réalisation de PCB, soudure}{}
+\mycvitemwithcomment{}{Microcontrôleurs : ARM (STM32 avec mbed), AVR (Arduino), PIC (Microchip)}{}
+
+\mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
+\mycvitemwithcomment{}{Conteneurs (Docker), monitoring (Munin)}{}
+
+% \mycvitemwithcomment{Web - Backend}{Python (frameworks Django et Flask)}{}
+% \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (framework Foundation), Javascript (JQuery)}{}
+
+\mycvitemwithcomment{Écosystème UNIX}{Git, Vim, scripts Bash, Make, ...}{}
+
+% \mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
+
 
 \subsection{Langues}
 \cventry{Français}{Langue maternelle}{}{}{}{}
 \cventry{Anglais}{Toefl IBT}{Noté 93/120 en 2015}{}{}{}
 
 
-\mysection{Passions diverses}
+\mysection{Passions}
 %------------------------------------------------------------------------------
 
 \cvitem{}{Aéromodélisme, rollers, tennis de table}

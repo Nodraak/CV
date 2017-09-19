@@ -2,7 +2,9 @@
 \documentclass[11pt, a4paper]{moderncv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.89]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[scale=0.88]{geometry}
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 
@@ -12,7 +14,11 @@
 \setlength{\hintscolumnwidth}{40mm}  % left column
 \renewcommand{\dateseparator}{--}  % format \today
 
+% arguments: left column, item, comment
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
+% arguments: date, job title, company, comment, description
+\newcommand{\mycventry}[5]{\cventry{#1}{#2}{\textsc{#3}}{\textit{#4}}{}{#5}}
+
 \newcommand{\mysection}[1]{\section{\textbf{#1}}}
 \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
   \setbox0=\hbox{#3}% Put <stuff> in a box
@@ -34,7 +40,7 @@
 \title{
   French engineer student fascinated by electronics \newline
   and computer science, available for a 6 months \newline
-  intership starting March 2018
+  internship starting March 2018
 }
 %\address{}
 \email{adrienchardon AT mailoo.org}
@@ -51,54 +57,86 @@
 
 
 \vspace{-12mm}
+
 \mysection{Education}
 %------------------------------------------------------------------------------
 
-% todo job xp before ??
-
-\subsection{Studies}
-\cventry{2015 - 2016}{Bachelor of Science in electronics \& IT}{}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
+% \subsection{Studies}
 \cventry{2013 - 2018 \\ \textit{Pending}}{Engineering Degree, majoring in embedded systems}{}{}{}{ECE Paris - Paris, France}
+\cventry{2016}{Bachelor of Science in electronics \& IT}{}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
 %\cventry{Août 2013}{Concours d'entrée de l'école 42 réussi}{}{}{}{École 42 - Paris, France}
-\cventry{2013}{French baccalauréat (high school degree)}{}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
+% \cventry{2013}{French baccalauréat (high school degree)}{}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
+
+
+\mysection{Skills}
+%------------------------------------------------------------------------------
+
+\subsection{Technical Skills}
+
+\mycvitemwithcomment{Programming skills}{C and C++}{Low level (sockets, threads), GUI (SDL), embedded microcontroler.}
+\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
+% \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
+
+\mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
+\mycvitemwithcomment{}{Microcontrolers: ARM (STM32 with mbed), AVR (Arduino), PIC (Microchip)}{}
+
+\mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
+\mycvitemwithcomment{}{Containers (Docker), monitoring (Munin)}{}
+
+% \mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
+% \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+
+\mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, ...}{}
+
+% \mycvitemwithcomment{Word processing}{\LaTeX}{}
+
 
 \subsection{Languages}
 \cventry{French}{Mother tongue}{}{}{}{}
 \cventry{English}{Toefl IBT}{Scored 93/120 in 2015}{}{}{}
 
 
-\mysection{Technical skills}
+\mysection{Work Experience}
 %------------------------------------------------------------------------------
 
-\mycvitemwithcomment{Programming skills}{C and C++}{Low level (sockets, threads), GUI (SDL), embedded microcontroller.}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
-\mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
+\subsection{Employment Experience}
 
-\mycvitemwithcomment{Microcontrollers}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
-\mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
+\mycventry{May to August 2017}
+    {Internship}
+    {Future Electronics}
+    {Electronic components distributor - Paris (France)}
+    {Development with PSoC 6 (microcontroler from Cypress)}
+\mycventry{July and August 2016}
+    {Internship}
+    {WePulsit}
+    {Startup - Paris (France)}
+    {Improved the prototype of a glove for controlling drones}
+\mycventry{Autumn 2015}
+    {Student job}
+    {AAU}
+    {Aalborg university (Denmark)}
+    {Developed a car with augmented reality with an Oculus Rift}
 
-\mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
-\mycvitemwithcomment{}{Containers (Docker), monitoring (Munin), load-balancing (HA Proxy)}{}
+\subsection{Other Relevant Experience}
 
-\mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
-\mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
-
-\mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, ...}{}
-
-\mycvitemwithcomment{Word processing}{\LaTeX}{}
-
-\mysection{Job experiences}
-%------------------------------------------------------------------------------
-
-\mycvitemwithcomment{2016-2017}{President of iTeam (student association promoting free software at ECE Paris)}{}
-\mycvitemwithcomment{2016-2017}{Team projet at ECE Paris: design and realization of an autonomous robot \\ for the French Robotic cup (Eurobot)}{}
-\mycvitemwithcomment{Summer 2016}{Internship at Pulsit}{Prototyping around Arduino.}
-\mycvitemwithcomment{Autumn 2015}{Student job at Aalborg university (Denmark)}{Dev with an Oculus Rift.}
-\mycvitemwithcomment{Summer 2015}{Internship at Findspire (Paris)}{}
-\mycvitemwithcomment{Since sept. 2014}{System administrator of iTeam's servers}{}
-\mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
+\mycventry{2016-2017}
+    {Executive position in club (president)}
+    {iTeam}
+    {Student association promoting free software}
+    {} %Coordination des 7 administrateurs dans un contexte de gestion associative
+\mycventry{2016-2017}
+    {Team project}
+    {ECE Paris}
+    {Project lasting 1 year with 5 classmates}
+    {Designed and built an autonomous robot for the French Robotic cup}
+\mycventry{2014-2016}
+    {Sysadmin}
+    {iTeam}
+    {Student association promoting free software}
+    {In charge of several servers: website, email, IRC, ...}
+% \mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
 %\mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
-\mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
+% \mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
 
 
 \mysection{Hobbies}
