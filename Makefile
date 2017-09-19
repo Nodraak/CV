@@ -11,7 +11,9 @@ OUT_ALL = $(OUT_FR) $(OUT_EN)
 .PHONY: all re clean patch_apply patch_revert pdflatex_fr pdflatex_en
 
 all: fr.pdf en.pdf
-
+	@echo "== Compilation finished, now upload to diamant =="
+	@echo "scp CV_AdrienChardon_web.pdf diamant:/var/www/cv/cv/fr.pdf"
+	@echo "scp Resume_AdrienChardon_web.pdf diamant:/var/www/cv/cv/en.pdf"
 
 re: clean all
 
@@ -32,7 +34,7 @@ pdflatex_fr:
 pdflatex_en:
 	pdflatex --shell-escape en.tex
 
-fr.pdf: fr.tex
+fr.pdf: fr.tex add_personal_info.patch
 	make patch_apply
 	make pdflatex_fr
 	cp fr.pdf $(OUT_FR_PERSO)
@@ -41,7 +43,7 @@ fr.pdf: fr.tex
 	make pdflatex_fr
 	cp fr.pdf $(OUT_FR_WEB)
 
-en.pdf: en.tex
+en.pdf: en.tex add_personal_info.patch
 	make patch_apply
 	make pdflatex_en
 	cp en.pdf $(OUT_EN_PERSO)

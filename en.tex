@@ -3,14 +3,14 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[scale=0.89]{geometry}
-\usepackage[yyyymmdd]{datetime}
-\usepackage[pscoord]{eso-pic}
+\usepackage[yyyymmdd]{datetime}  % format \today
+\usepackage[pscoord]{eso-pic}  % \placetextbox
 
 \moderncvstyle{classic}
 \moderncvcolor{blue}
 \nopagenumbers{}
-\setlength{\hintscolumnwidth}{40mm}
-\renewcommand{\dateseparator}{--}
+\setlength{\hintscolumnwidth}{40mm}  % left column
+\renewcommand{\dateseparator}{--}  % format \today
 
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
 \newcommand{\mysection}[1]{\section{\textbf{#1}}}
@@ -31,12 +31,16 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\title{French engineer student fascinated by computer \newline science and electronics, available for an intership \newline between May and August 2017}
+\title{
+  French engineer student fascinated by electronics \newline
+  and computer science, available for a 6 months \newline
+  intership starting March 2018
+}
 %\address{}
-\email{adrienchardon+ghcv@mailoo.org}
+\email{adrienchardon AT mailoo.org}
 %\mobile{}
 \homepage{https://nodraak.fr}
-%\social[github]{https://github.com/Nodraak}
+\social[github]{https://github.com/Nodraak}
 %\extrainfo{Born on January 30, 1995} % no birthday if us
 
 % Content
@@ -103,10 +107,10 @@
 \cvitem{}{Model airplanes, roller blading, table tennis}
 \cvitem{Video games}{Kerbal Space Program}
 
-\placetextbox{0.04}{0.13}{
-    \tiny{
-        \today~-~\input{|"git rev-parse --short HEAD"}
-    }
+\placetextbox{0.94}{0.18}{
+  \tiny{
+    Version~-~\input{|"git rev-parse --short HEAD"}~-~\today
+  }
 }
 
 \end{document}

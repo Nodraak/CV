@@ -3,14 +3,14 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[scale=0.89]{geometry}
-\usepackage[yyyymmdd]{datetime}
-\usepackage[pscoord]{eso-pic}
+\usepackage[yyyymmdd]{datetime}  % format \today
+\usepackage[pscoord]{eso-pic}  % \placetextbox
 
 \moderncvstyle{classic}
 \moderncvcolor{blue}
 \nopagenumbers{}
-\setlength{\hintscolumnwidth}{40mm}
-\renewcommand{\dateseparator}{--}
+\setlength{\hintscolumnwidth}{40mm}  % left column
+\renewcommand{\dateseparator}{--}  % format \today
 
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
 \newcommand{\mysection}[1]{\section{\textbf{#1}}}
@@ -31,13 +31,17 @@
 \firstname{Adrien}
 \familyname{CHARDON}
 
-\title{Étudiant ingénieur passionné d'informatique et \newline d'électronique, disponible de mai à août 2017}
+\title{
+  Étudiant ingénieur passionné d'informatique et \newline
+  d'électronique, disponible à partir de mars 2018 \newline
+  pour un stage de fin d'études de six mois
+}
 %\address{}
-\email{adrienchardon+ghcv@mailoo.org}
+\email{adrienchardon AT mailoo.org}
 %\mobile{}
-\homepage{https://nodraak.fr/}
-\social[github]{https://github.com/Nodraak/}
-\extrainfo{Né le 30 janvier 1995}
+\homepage{https://nodraak.fr}
+\social[github]{https://github.com/Nodraak}
+\extrainfo{Né le 30 janvier 1995 (22 ans)}
 
 % Content
 %------------------------------------------------------------------------------
@@ -74,7 +78,7 @@
 \mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
 \mycvitemwithcomment{}{Asm x86}{Reverse engineering de binaires et conception des systèmes d'exploitation.}
 
-\mycvitemwithcomment{Micro-contrôlleurs}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
+\mycvitemwithcomment{Microcontrôleurs}{AVR (Arduino), ARM (STM32), PIC (Microchip)}{}
 \mycvitemwithcomment{Électronique}{Conception et réalisation de PCB, soudure}{}
 
 \mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
@@ -108,10 +112,10 @@
 \cvitem{}{Aéromodélisme, rollers, tennis de table}
 \cvitem{Jeux vidéo}{Kerbal Space Program}
 
-\placetextbox{0.04}{0.13}{
-    \tiny{
-        \today~-~\input{|"git rev-parse --short HEAD"}
-    }
+\placetextbox{0.94}{0.18}{
+  \tiny{
+    Version~-~\input{|"git rev-parse --short HEAD"}~-~\today
+  }
 }
 
 \end{document}
