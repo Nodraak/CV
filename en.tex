@@ -16,6 +16,21 @@
 
 % arguments: left column, item, comment
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
+
+% copied from moderncv install
+% grep -nr cventry /home/nodraak/texmf/tex/latex/moderncv/moderncvstyleclassic.sty -A 9
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    \ifx&#7&%
+      \else{\begin{minipage}[t]{\linewidth}\small#7\end{minipage}\newline{}}\fi%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+  }%
+}
+
 % arguments: date, job title, company, comment, description
 \newcommand{\mycventry}[5]{\cventry{#1}{#2}{\textsc{#3}}{\textit{#4}}{}{#5}}
 
@@ -73,7 +88,7 @@
 
 \subsection{Technical Skills}
 
-\mycvitemwithcomment{Programming skills}{C and C++}{Low level (sockets, threads), GUI (SDL), embedded microcontroler.}
+\mycvitemwithcomment{Programming skills}{C and C++}{Low level, GUI and embedded microcontrolers.}
 \mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
 % \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
 
@@ -120,10 +135,10 @@
 \subsection{Other Relevant Experience}
 
 \mycventry{2016-2017}
-    {Executive position in club (president)}
+    {President}
     {iTeam}
     {Student association promoting free software}
-    {} %Coordination des 7 administrateurs dans un contexte de gestion associative
+    {Events and conferences organization}
 \mycventry{2016-2017}
     {Team project}
     {ECE Paris}
@@ -147,7 +162,7 @@
 
 \placetextbox{0.94}{0.18}{
   \tiny{
-    Version~-~\input{|"git rev-parse --short HEAD"}~-~\today
+    Version~-~\input{|"git rev-parse --short HEAD"}-web~-~\today
   }
 }
 
