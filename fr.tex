@@ -41,7 +41,7 @@
     \put(
         \LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}
     ){
-        \vtop{{\null}\makebox[0pt][c]{\rotatebox[origin=c]{90}{#3}}}
+        \vtop{{\null}\makebox[0pt][c]{#3}}
     }%
   }%
 }%
@@ -53,8 +53,8 @@
 \familyname{CHARDON}
 
 \title{\large
-  Étudiant ingénieur passionné d'informatique et d'électronique, \newline
-  disponible à partir de mars 2018 pour un stage de fin d'études de six mois
+  Étudiant ingénieur passionné d'informatique et d'électronique. \newline
+  Disponible à partir de mars 2018 pour un stage de fin d'études de six mois.
 }
 %\address{}
 \email{adrienchardon AT mailoo.org}
@@ -160,7 +160,8 @@
 
 \subsection{Langues}
 \cventry{Français}{Langue maternelle}{}{}{}{}
-\cventry{Anglais}{Toefl IBT}{Noté 93/120 en 2015}{}{}{}
+\cventry{Anglais}{Courant}{TOEIC: noté 935/990 en 2017}{}{}{}
+% \cventry{Anglais}{Toefl IBT}{Noté 93/120 en 2015}{}{}{}
 
 
 \mysection{Passions}
@@ -169,10 +170,10 @@
 \cvitem{}{Aéromodélisme, rollers, tennis de table}
 \cvitem{Jeux vidéo}{Kerbal Space Program}
 
-\placetextbox{0.94}{0.18}{
-  \tiny{
-    Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
-  }
-}
+\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+    \tiny{
+        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
+    }
+}}
 
 \end{document}

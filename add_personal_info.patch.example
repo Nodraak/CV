@@ -2,8 +2,8 @@ diff --git a/en.tex b/en.tex
 --- a/en.tex
 +++ b/en.tex
 @@ -60,9 +60,9 @@
-   and computer science, available for a 6 months \newline
-   internship starting March 2018
+   and computer science. Available for a 6 months \newline
+   internship starting in March 2018.
  }
 -%\address{}
 -\email{adrienchardon AT mailoo.org}
@@ -23,8 +23,8 @@ diff --git a/fr.tex b/fr.tex
 --- a/fr.tex
 +++ b/fr.tex
 @@ -59,9 +59,9 @@
-   Étudiant ingénieur passionné d'informatique et d'électronique, \newline
-   disponible à partir de mars 2018 pour un stage de fin d'études de six mois
+   Étudiant ingénieur passionné d'informatique et d'électronique. \newline
+   Disponible à partir de mars 2018 pour un stage de fin d'études de six mois.
  }
 -%\address{}
 -\email{adrienchardon AT mailoo.org}

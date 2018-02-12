@@ -41,7 +41,7 @@
     \put(
         \LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}
     ){
-        \vtop{{\null}\makebox[0pt][c]{\rotatebox[origin=c]{90}{#3}}}
+        \vtop{{\null}\makebox[0pt][c]{#3}}
     }%
   }%
 }%
@@ -54,8 +54,8 @@
 
 \title{
   French engineer student fascinated by electronics \newline
-  and computer science, available for a 6 months \newline
-  internship starting March 2018
+  and computer science. Available for a 6 months \newline
+  internship starting in March 2018.
 }
 %\address{}
 \email{adrienchardon AT mailoo.org}
@@ -81,34 +81,6 @@
 \cventry{2016}{Bachelor of Science in electronics \& IT}{}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
 %\cventry{Août 2013}{Concours d'entrée de l'école 42 réussi}{}{}{}{École 42 - Paris, France}
 % \cventry{2013}{French baccalauréat (high school degree)}{}{}{}{Lycée St Dominique - Neuilly-sur-Seine, France}{}
-
-
-\mysection{Skills}
-%------------------------------------------------------------------------------
-
-\subsection{Technical Skills}
-
-\mycvitemwithcomment{Programming skills}{C and C++}{Low level, GUI and embedded microcontrollers.}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
-% \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
-
-\mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
-\mycvitemwithcomment{}{Microcontrollers: ARM (STM32 with mbed), AVR (Arduino), PIC (Microchip)}{}
-
-\mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
-\mycvitemwithcomment{}{Containers (Docker), monitoring (Munin)}{}
-
-% \mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
-% \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
-
-\mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, ...}{}
-
-% \mycvitemwithcomment{Word processing}{\LaTeX}{}
-
-
-\subsection{Languages}
-\cventry{French}{Mother tongue}{}{}{}{}
-\cventry{English}{Toefl IBT}{Scored 93/120 in 2015}{}{}{}
 
 
 \mysection{Work Experience}
@@ -153,10 +125,40 @@
     {Sysadmin}
     {iTeam}
     {Student association promoting free software}
-    {In charge of several servers: website, email, IRC, ...}
+    {In charge of several servers: website, email, IRC,etc.}
 % \mycvitemwithcomment{Summer 2014}{Development of iteam.org website}{}
-%\mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
+% \mycvitemwithcomment{Summer 2014}{Involment in the french open source project Zeste de Savoir}{}
 % \mycvitemwithcomment{June 2014}{Internship at Computer Aid International (London)}{}
+
+
+\mysection{Skills}
+%------------------------------------------------------------------------------
+
+\subsection{Technical Skills}
+
+\mycvitemwithcomment{Programming skills}{C and C++}{Low level, GUI and embedded microcontrollers.}
+\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
+% \mycvitemwithcomment{}{Asm x86}{Reverse engineering and operating systems study.}
+
+\mycvitemwithcomment{Electronics}{PCB design, printing and soldering}{}
+\mycvitemwithcomment{}{Microcontrollers: ARM (STM32 with mbed), AVR (Arduino), PIC (Microchip)}{}
+
+\mycvitemwithcomment{System administration}{Linux (Ubuntu and Debian)}{}
+\mycvitemwithcomment{}{Containers (Docker), monitoring (Munin)}{}
+
+% \mycvitemwithcomment{Web - Backend}{Python (Django and Flask frameworks)}{}
+% \mycvitemwithcomment{Web - Frontend}{HTML, CSS/SCSS (Foundation framework), Javascript (JQuery)}{}
+
+\mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, etc.}{}
+
+% \mycvitemwithcomment{Word processing}{\LaTeX}{}
+
+
+\subsection{Languages}
+\cventry{French}{Mother tongue}{}{}{}{}
+\cventry{English}{Fluent}{TOEIC: scored 935/990 in 2017}{}{}{}
+% \cventry{English}{Fluent}{Toefl IBT: scored 93/120 in 2015}{}{}{}
+% \cventry{German}{Notions}{High school second language}{}{}{}
 
 
 \mysection{Hobbies}
@@ -165,10 +167,10 @@
 \cvitem{}{Model airplanes, roller blading, table tennis}
 \cvitem{Video games}{Kerbal Space Program}
 
-\placetextbox{0.94}{0.18}{
-  \tiny{
-    Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
-  }
-}
+\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+    \tiny{
+        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
+    }
+}}
 
 \end{document}
