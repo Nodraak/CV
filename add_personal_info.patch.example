@@ -1,0 +1,42 @@
+diff --git a/en.tex b/en.tex
+--- a/en.tex
++++ b/en.tex
+@@ -60,9 +60,9 @@
+   and computer science, available for a 6 months \newline
+   internship starting March 2018
+ }
+-%\address{}
+-\email{adrienchardon AT mailoo.org}
+-%\mobile{}
++\address{127.0.0.1}{Earth}
++\email{idontwantspam@please.com}
++\mobile{+33 1 23 45 67 89}
+ \homepage{https://nodraak.fr}
+ \social[github]{https://github.com/Nodraak}
+ %\extrainfo{Born on January 30, 1995} % no birthday if us
+@@ -172,3 +172,3 @@
+   \tiny{
+-    Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
++    Version~-~\input{|"git rev-parse --short HEAD"}-~pro~-~\today
+   }
+diff --git a/fr.tex b/fr.tex
+--- a/fr.tex
++++ b/fr.tex
+@@ -59,9 +59,9 @@
+   Étudiant ingénieur passionné d'informatique et d'électronique, \newline
+   disponible à partir de mars 2018 pour un stage de fin d'études de six mois
+ }
+-%\address{}
+-\email{adrienchardon AT mailoo.org}
+-%\mobile{}
++\address{127.0.0.1}{Terre}
++\email{jeneveuxpasdespam@svp.fr}
++\mobile{01 23 45 67 89}
+ \homepage{https://nodraak.fr}
+ \social[github]{https://github.com/Nodraak}
+ \extrainfo{Né le 30 janvier 1995 (22 ans)}
+@@ -175,3 +175,3 @@
+   \tiny{
+-    Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
++    Version~-~\input{|"git rev-parse --short HEAD"}-~pro~-~\today
+   }

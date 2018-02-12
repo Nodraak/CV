@@ -1,10 +1,17 @@
-
-# LaTex related stuff
+# LaTex
 *.aux
 *.log
 *.out
+fr.pdf
+en.pdf
 
-# tests
+# never commit thoses files!
+CV_AdrienChardon.pdf
+Resume_AdrienChardon.pdf
+add_personal_info.patch
+
 cvstyle/
 cvstyle_minimal/
+Examples/
+History/
 

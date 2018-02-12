@@ -10,6 +10,11 @@ OUT_ALL = $(OUT_FR) $(OUT_EN)
 
 .PHONY: all re clean patch_apply patch_revert pdflatex_fr pdflatex_en
 
+# By default (target "all") this works by compiling four times (two languages
+# and two flavors: with private infos or without)
+# It applies the patch to add the personal info, compile and save and then
+# reverts the patch
+
 all: fr.pdf en.pdf
 	@echo "== Compilation finished, now upload to diamant =="
 	@echo "scp CV_AdrienChardon_web.pdf diamant:/var/www/cv/cv/fr.pdf"
