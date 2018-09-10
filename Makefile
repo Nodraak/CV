@@ -1,59 +1,51 @@
 
-OUT_FR_PERSO = CV_AdrienChardon.pdf
-OUT_FR_WEB = CV_AdrienChardon_web.pdf
-OUT_EN_PERSO = Resume_AdrienChardon.pdf
-OUT_EN_WEB = Resume_AdrienChardon_web.pdf
+OUT_FR_PRIVATE = CV_AdrienChardon.pdf
+OUT_FR_PUBLIC = CV_AdrienChardon_web.pdf
+OUT_EN_PRIVATE = Resume_AdrienChardon.pdf
+OUT_EN_PUBLIC = Resume_AdrienChardon_web.pdf
 
-OUT_FR = $(OUT_FR_PERSO) $(OUT_FR_WEB)
-OUT_EN = $(OUT_EN_PERSO) $(OUT_EN_WEB)
+OUT_FR = $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
+OUT_EN = $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 OUT_ALL = $(OUT_FR) $(OUT_EN)
 
-.PHONY: all re clean patch_apply patch_revert pdflatex_fr pdflatex_en
+.PHONY: all re clean fr en
 
 # By default (target "all") this works by compiling four times (two languages
 # and two flavors: with private infos or without)
 # It applies the patch to add the personal info, compile and save and then
 # reverts the patch
 
-all: fr.pdf en.pdf
+all: fr en
 	@echo "== Compilation finished, now upload to diamant =="
-	@echo "scp CV_AdrienChardon_web.pdf diamant:/var/www/cv/cv/fr.pdf"
-	@echo "scp Resume_AdrienChardon_web.pdf diamant:/var/www/cv/cv/en.pdf"
+	@echo "scp $(OUT_FR_PUBLIC) diamant:/var/www/cv/cv/fr.pdf"
+	@echo "scp $(OUT_EN_PUBLIC) diamant:/var/www/cv/cv/en.pdf"
+
 
 re: clean all
 
 clean:
-	rm -f *.aux *.log *.out
-	rm -f $(OUT_ALL) fr.pdf en.pdf
+	rm -f *.aux *.log *.out $(OUT_ALL) fr.pdf en.pdf
 
+fr: $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
 
-patch_apply:
-	git apply add_personal_info.patch
+en: $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 
-patch_revert:
-	git apply -R add_personal_info.patch
+$(OUT_FR_PRIVATE): fr.tex sed-script-file-private
+	cat fr.tex | sed -f sed-script-file-private | xelatex --shell-escape
+	mv texput.pdf $(OUT_FR_PRIVATE)
+	rm -f texput.*
 
-pdflatex_fr:
-	pdflatex --shell-escape fr.tex
+$(OUT_FR_PUBLIC): fr.tex sed-script-file-public
+	cat fr.tex | sed -f sed-script-file-public | xelatex --shell-escape
+	mv texput.pdf $(OUT_FR_PUBLIC)
+	rm -f texput.*
 
-pdflatex_en:
-	pdflatex --shell-escape en.tex
+$(OUT_EN_PRIVATE): en.tex sed-script-file-private
+	cat en.tex | sed -f sed-script-file-private | xelatex --shell-escape
+	mv texput.pdf $(OUT_EN_PRIVATE)
+	rm -f texput.*
 
-fr.pdf: fr.tex add_personal_info.patch
-	make patch_apply
-	make pdflatex_fr
-	cp fr.pdf $(OUT_FR_PERSO)
-	make patch_revert
-
-	make pdflatex_fr
-	cp fr.pdf $(OUT_FR_WEB)
-
-en.pdf: en.tex add_personal_info.patch
-	make patch_apply
-	make pdflatex_en
-	cp en.pdf $(OUT_EN_PERSO)
-	make patch_revert
-
-	make pdflatex_en
-	cp en.pdf $(OUT_EN_WEB)
-
+$(OUT_EN_PUBLIC): fr.tex sed-script-file-public
+	cat en.tex | sed -f sed-script-file-public | xelatex --shell-escape
+	mv texput.pdf $(OUT_EN_PUBLIC)
+	rm -f texput.*

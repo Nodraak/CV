@@ -8,10 +8,9 @@ en.pdf
 # never commit thoses files!
 CV_AdrienChardon.pdf
 Resume_AdrienChardon.pdf
-add_personal_info.patch
+sed-script-file-private
 
 cvstyle/
 cvstyle_minimal/
 Examples/
 History/
-
