@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[scale=0.89]{geometry}
+\usepackage[scale=0.85]{geometry}
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 
@@ -79,9 +79,14 @@
 \mysection{Education}
 %------------------------------------------------------------------------------
 
+\subsection{Degrees}
 \cventry{2018 - 2019 \\ \textit{Pending}}{Advanced Master}{space systems design (TAS Astro)}{}{}{ISAE Supaero - Toulouse, France}
 \cventry{2013 - 2018}{Engineering Degree}{majoring in embedded systems}{}{}{ECE Paris - Paris, France}
 \cventry{2015 - 2016}{Bachelor of Science}{electronics \& IT}{}{}{Aalborg University, electronics department - Aalborg, Denmark}
+
+\subsection{Languages}
+\cventry{French}{Mother tongue}{}{}{}{}
+\cventry{English}{Fluent}{TOEIC: scored 935/990 in 2017}{}{}{}
 
 
 \mysection{Work Experience}
@@ -104,11 +109,6 @@
     {WePulsit}
     {Startup - Paris (France)}
     {Improved the prototype of a glove for controlling drones}
-\mycventry{Autumn 2015}
-    {Student job}
-    {AAU}
-    {Aalborg university (Denmark)}
-    {Developed a car with augmented reality with an Oculus Rift}
 
 \subsection{Other Relevant Experience}
 
@@ -127,12 +127,23 @@
     {ECE Paris}
     {Project lasting 1 year with 5 classmates}
     {Designed and built an autonomous robot for the French Robotic cup}
-\mycventry{2014-2016}
-    {Sysadmin}
-    {iTeam}
-    {Student association promoting free software}
-    {In charge of several servers: website, email, IRC,etc.}
 
+
+\mysection{Hobbies}
+%------------------------------------------------------------------------------
+
+\cvitem{Projects}{Robots, model airplanes}
+\cvitem{Video games}{Kerbal Space Program}
+\cvitem{Sports}{Roller blading, table tennis}
+
+
+\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+    \tiny{
+        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
+    }
+}}
+
+\newpage
 
 \mysection{Skills}
 %------------------------------------------------------------------------------
@@ -152,23 +163,5 @@
 \mycvitemwithcomment{UNIX ecosystem}{Git, Vim, Bash scripts, Make, etc.}{}
 
 % \mycvitemwithcomment{Word processing}{\LaTeX}{}
-
-
-\subsection{Languages}
-\cventry{French}{Mother tongue}{}{}{}{}
-\cventry{English}{Fluent}{TOEIC: scored 935/990 in 2017}{}{}{}
-
-
-\mysection{Hobbies}
-%------------------------------------------------------------------------------
-
-\cvitem{}{Model airplanes, roller blading, table tennis}
-\cvitem{Video games}{Kerbal Space Program}
-
-\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
-    \tiny{
-        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
-    }
-}}
 
 \end{document}

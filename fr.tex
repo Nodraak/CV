@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\usepackage[scale=0.89]{geometry}
+\usepackage[scale=0.85]{geometry}
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 
@@ -78,9 +78,14 @@
 \mysection{Formation}
 %------------------------------------------------------------------------------
 
+\subsection{Diplômes}
 \cventry{2018 - 2019 \\ \textit{En cours d'obtention}}{Advanced Master}{space systems design (TAS Astro)}{}{}{ISAE Supaero - Toulouse, France}
 \cventry{2013 - 2018}{Diplôme d'ingénieur}{majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
 \cventry{2015 - 2016}{Bachelor of Science}{electronics \& IT}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
+
+\subsection{Langues}
+\cventry{Français}{Langue maternelle}{}{}{}{}
+\cventry{Anglais}{Courant}{TOEIC: noté 935/990 en 2017}{}{}{}
 
 
 \mysection{Expérience}
@@ -103,11 +108,6 @@
     {WePulsit}
     {Startup incubée à Polytechnique - Paris (France)}
     {Amélioration d'un gant pour piloter des drones}
-\mycventry{Automne 2015}
-    {Job étudiant}
-    {AAU}
-    {Université d'Aalborg (Danemark)}
-    {Développement d'une voiture en réalité virtuelle avec un Oculus Rift}
 
 \subsection{Expériences non rémunérées}
 
@@ -126,12 +126,23 @@
     {ECE Paris}
     {Projet sur 1 an avec 5 camarades}
     {Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
-\mycventry{2014-2016}
-    {Sysadmin}
-    {iTeam}
-    {Association étudiante de promotion du logiciel libre}
-    {Responsable des serveurs : site web, email, IRC, ...}
 
+
+\mysection{Passions}
+%------------------------------------------------------------------------------
+
+\cvitem{Projets}{Robots, Aéromodélisme}
+\cvitem{Jeux vidéo}{Kerbal Space Program}
+\cvitem{Sports}{Roller, tennis de table}
+
+
+\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+    \tiny{
+        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
+    }
+}}
+
+\newpage
 
 \mysection{Compétences}
 %------------------------------------------------------------------------------
@@ -152,23 +163,5 @@
 \mycvitemwithcomment{Écosystème UNIX}{Git, Vim, scripts Bash, Make, ...}{}
 
 % \mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
-
-
-\subsection{Langues}
-\cventry{Français}{Langue maternelle}{}{}{}{}
-\cventry{Anglais}{Courant}{TOEIC: noté 935/990 en 2017}{}{}{}
-
-
-\mysection{Passions}
-%------------------------------------------------------------------------------
-
-\cvitem{}{Aéromodélisme, rollers, tennis de table}
-\cvitem{Jeux vidéo}{Kerbal Space Program}
-
-\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
-    \tiny{
-        Version~-~\input{|"git rev-parse --short HEAD"}-~web~-~\today
-    }
-}}
 
 \end{document}
