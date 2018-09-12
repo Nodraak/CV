@@ -1,12 +1,11 @@
 
 \documentclass[11pt, a4paper, sans]{moderncv}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\usepackage[scale=0.85]{geometry}
+\usepackage[margin=17mm]{geometry}
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
+\usepackage{siunitx}
 
 %%%%%%%%%%%%%%%%%%%%
 % Set font
@@ -30,27 +29,25 @@
 % Custom commands
 %%%%%%%%%%%%%%%%%%%%
 
-% arguments: left column, item, comment
-\newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
+\newcommand{\mysection}[1]{\section{\textbf{#1}}}
 
-% copied from moderncv install
-% grep -nr cventry /home/nodraak/texmf/tex/latex/moderncv/moderncvstyleclassic.sty -A 9
-\renewcommand*{\cventry}[7][.25em]{%
-  \cvitem[#1]{#2}{%
-    \ifx&#7&%
-      \else{\begin{minipage}[t]{\linewidth}\small#7\end{minipage}\newline{}}\fi%
-    {\bfseries#3}%
-    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
-    \ifthenelse{\equal{#5}{}}{}{, #5}%
-    \ifthenelse{\equal{#6}{}}{}{, #6}%
-    .\strut%
-  }%
+% mycvxp: date, title, company, missions/results, skills
+\newcommand{\mycvxp}[5]{
+    \cvitem{
+        \begin{minipage}[t]{\linewidth}
+            #1 \newline{}                           % normal: date
+            \textbf{#2} \newline{}                  % bold: title
+            \textsc{#3} \smallskip{}                % textit: company
+        \end{minipage}
+    }{
+        \begin{minipage}[t]{\linewidth}
+            - #4 \newline{}                         % missions/results
+            - \textit{#5} \smallskip{}              % textit: skills
+        \end{minipage}
+    }
 }
 
-% arguments: date, job title, company, comment, description
-\newcommand{\mycventry}[5]{\cventry{#1}{#2}{\textsc{#3}}{\textit{#4}}{}{#5}}
-
-\newcommand{\mysection}[1]{\section{\textbf{#1}}}
+% for showing the version
 \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
   \setbox0=\hbox{#3}% Put <stuff> in a box
   \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
@@ -70,15 +67,18 @@
 \familyname{CHARDON}
 
 \title{\large
-  Étudiant ingénieur passionné d'informatique et d'électronique. \newline
-  Disponible à partir de mars 2019 pour un stage de fin d'études de six mois.
+    Je suis ingénieur jeune diplômé, passionné d'informatique et d'électronique. \newline
+    \medskip  % wtf?
+    Je recherche un stage de fin d'études ou un premier emploi pour mars 2019. \newline
+    \textbf{Objectif professionnel :} développement logiciel ou conception \newline
+    électronique appliqué au spatial (lanceurs, satellites, stations habitées, etc).
 }
 \address{PLACEHOLDER_ADDRESS1_FR}{PLACEHOLDER_ADDRESS2_FR}
 \email{PLACEHOLDER_EMAIL}
-\mobile{PLACEHOLDER_MOBILE}
+PLACEHOLDER_MOBILE  % if \mobile{} is empty, the phone logo still shows up
 \homepage{https://nodraak.fr}
 \social[github]{https://github.com/Nodraak}
-\extrainfo{Né en 1995 (23 ans)}
+\extrainfo{PLACEHOLDER_EXTRAINFO_FR}
 
 %%%%%%%%%%%%%%%%%%%%
 % Content
@@ -95,9 +95,9 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \subsection{Diplômes}
-\cventry{2018 - 2019 \\ \textit{En cours d'obtention}}{Advanced Master}{space systems design (TAS Astro)}{}{}{ISAE Supaero - Toulouse, France}
-\cventry{2013 - 2018}{Diplôme d'ingénieur}{majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
-\cventry{2015 - 2016}{Bachelor of Science}{electronics \& IT}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
+\cventry{2018 - 2019 \\ \textit{En cours d'obtention}}{Master spécialisé}{TAS Astro : space systems design}{}{}{ISAE-Supaero - Toulouse, France}
+\cventry{2013 - 2018}{Diplôme d'ingénieur}{Majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
+\cventry{2015 - 2016}{Bachelor of Science}{Electronics \& IT}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
 
 \subsection{Langues}
 \cventry{Français}{Langue maternelle}{}{}{}{}
@@ -107,50 +107,67 @@
 \mysection{Expériences}
 %%%%%%%%%%%%%%%%%%%%
 
-\subsection{Expériences rémunérées}
+\subsection{Expériences professionnelles}
 
-\mycventry{Mars à août 2018}
+\mycvxp
+    {Mars à août 2018}
     {Stage}
-    {Communication \& Systèmes}
-    {-}
-    {-}
-\mycventry{Mai à août 2017}
+    {Communication \& \newline Systèmes}
+    {
+        Conception et mise en production d'une plate-forme pour automatiser le déploiement
+        d'applications virtualisées et l'exécution des tests (unitaires, intégrations, ...).
+    }
+    {Compétences : administration système (Linux Centos), Docker, Kubernetes, supervision (Prometheus, Grafana), Ansible, Git.}
+
+\mycvxp
+    {Mai à août 2017}
     {Stage}
     {Future Electronics}
-    {Distributeur de composants électroniques - Paris (France)}
-    {Développement IoT sur PSoC 6 (microcontrôleur de Cypress)}
-\mycventry{Juillet et août 2016}
-    {Stage}
-    {WePulsit}
-    {Startup incubée à Polytechnique - Paris (France)}
-    {Amélioration d'un gant pour piloter des drones}
+    {
+        Adaptation de l'OS Mbed-os sur le nouveau microcontrôleur PSoC 6 de Cypress.
+        Implémentation des périphériques GPIO, UART, Timer et Bluetooth BLE.
+    }
+    {Compétences : C, microcontrôleur ARM, Git.}
 
-\subsection{Expériences non rémunérées}
+\subsection{Projets étudiants et engagements associatifs}
 
-\mycventry{2017-2018}
-    {Projet en équipe}
-    {ECE Paris}
-    {Projet coordonné avec 25 étudiants}
-    {Conception et réalisation d'un satellite (cubesat) pour étudier une technique de désorbitation}
-\mycventry{2016-2017}
+\mycvxp
+    {2017-2018}
+    {Chef de projet}
+    {ECE3Sat}
+    {
+        Conception et réalisation, avec 25 étudiants, d'un nano satellite pour étudier une nouvelle technique de désorbitation.
+        Responsable de l'équipe en charge de l'architecture du satellite et de l'ordinateur de bord.
+    }
+    {Compétences : conception d'une architecture distribuée, dimensionnement et choix des microcontrôleurs, management d'une équipe.}
+
+\mycvxp
+    {2016-2017}
     {Président}
     {iTeam}
-    {Association étudiante de promotion du logiciel libre}
-    {Organisation d'événements et conférences}
-\mycventry{2016-2017}
-    {Projet en équipe}
-    {ECE Paris}
-    {Projet sur 1 an avec 5 camarades}
-    {Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
+    {
+        Président de l'association d'informatique et de promotion du logiciel libre à l'ECE.
+        Coordination de l'organisation d'événements et de conférences pour les étudiants.
+    }
+    {Compétences : management d'une équipe, gestion d'une association.}
 
+\mycvxp
+    {2016-2017}
+    {Projet étudiant}
+    {Gali X}
+    {
+        Conception et réalisation d'un robot autonome pour la coupe de France de Robotique.
+        Responsable de la partie informatique avec notamment le développement d'une architecture
+        distribuée pour favoriser la réutilisation pour les années futures.
+    }
+    {Compétences : C++, Git, \si{\micro}contrôleurs ARM, architecture distribuée, bus CAN.}
 
 %%%%%%%%%%%%%%%%%%%%
 \mysection{Passions}
 %%%%%%%%%%%%%%%%%%%%
 
-\cvitem{Projets}{Robots, Aéromodélisme}
-\cvitem{Jeux vidéo}{Kerbal Space Program}
-\cvitem{Sports}{Roller, tennis de table}
+\cvitem{Projets personnels}{Informatique, robotique, aéromodélisme}
+\cvitem{Simulation spatiale}{Kerbal Space Program}
 
 %%%%%%%%%%%%%%%%%%%%
 % Version
@@ -161,27 +178,5 @@
         Version PLACEHOLDER_VERSION_FR - \today - \input{|"git rev-parse --short HEAD"}
     }
 }}
-
-\newpage
-
-\mysection{Compétences}
-%------------------------------------------------------------------------------
-
-
-\subsection{Compétences techniques}
-
-\mycvitemwithcomment{Programmation}{C et C++}{Bas niveau, GUI et microcontrôleurs embarqués.}
-\mycvitemwithcomment{}{Python}{Django, Scipy, requests, OpenCV, Tensorflow.}
-% \mycvitemwithcomment{}{Asm x86}{Reverse engineering de binaires et conception des systèmes d'exploitation.}
-
-\mycvitemwithcomment{Électronique}{Conception et réalisation de PCB, soudure}{}
-\mycvitemwithcomment{}{Microcontrôleurs : ARM (STM32 avec mbed), AVR (Arduino), PIC (Microchip)}{}
-
-\mycvitemwithcomment{Administration système}{Linux (Ubuntu et Debian)}{Expérience : administration des serveurs de l'iTeam.}
-\mycvitemwithcomment{}{Conteneurs (Docker), monitoring (Munin)}{}
-
-\mycvitemwithcomment{Écosystème UNIX}{Git, Vim, scripts Bash, Make, ...}{}
-
-% \mycvitemwithcomment{Traitement de texte}{\LaTeX}{}
 
 \end{document}
