@@ -8,15 +8,27 @@
 \usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 
+%%%%%%%%%%%%%%%%%%%%
+% Set font
+%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{mathpazo}  % Palatino font
 % \usepackage{kpfonts}
 % \usepackage{fontspec} \setmainfont{Corbel}
+
+%%%%%%%%%%%%%%%%%%%%
+% Configure Moderncv
+%%%%%%%%%%%%%%%%%%%%
 
 \moderncvstyle{classic}
 \moderncvcolor{blue}
 \nopagenumbers{}
 \setlength{\hintscolumnwidth}{40mm}  % left column
 \renewcommand{\dateseparator}{--}  % format \today
+
+%%%%%%%%%%%%%%%%%%%%
+% Custom commands
+%%%%%%%%%%%%%%%%%%%%
 
 % arguments: left column, item, comment
 \newcommand{\mycvitemwithcomment}[3]{\cvitemwithcomment{#1}{\textnormal{#2}}{#3}}
@@ -50,9 +62,10 @@
   }%
 }%
 
-
+%%%%%%%%%%%%%%%%%%%%
 % Personal data
-%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%
+
 \firstname{Adrien}
 \familyname{CHARDON}
 
@@ -67,16 +80,19 @@
 \social[github]{https://github.com/Nodraak}
 \extrainfo{Né en 1995 (23 ans)}
 
+%%%%%%%%%%%%%%%%%%%%
 % Content
-%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
 \makecvtitle
 
 \vspace{-12mm}
 
+%%%%%%%%%%%%%%%%%%%%
 \mysection{Formation}
-%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Diplômes}
 \cventry{2018 - 2019 \\ \textit{En cours d'obtention}}{Advanced Master}{space systems design (TAS Astro)}{}{}{ISAE Supaero - Toulouse, France}
@@ -87,9 +103,9 @@
 \cventry{Français}{Langue maternelle}{}{}{}{}
 \cventry{Anglais}{Courant}{TOEIC: noté 935/990 en 2017}{}{}{}
 
-
-\mysection{Expérience}
-%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%
+\mysection{Expériences}
+%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Expériences rémunérées}
 
@@ -128,13 +144,17 @@
     {Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
 
 
+%%%%%%%%%%%%%%%%%%%%
 \mysection{Passions}
-%------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%
 
 \cvitem{Projets}{Robots, Aéromodélisme}
 \cvitem{Jeux vidéo}{Kerbal Space Program}
 \cvitem{Sports}{Roller, tennis de table}
 
+%%%%%%%%%%%%%%%%%%%%
+% Version
+%%%%%%%%%%%%%%%%%%%%
 
 \placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
     \tiny{
