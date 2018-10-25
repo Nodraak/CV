@@ -3,7 +3,6 @@
 
 \usepackage[french]{babel}
 \usepackage[margin=17mm]{geometry}
-\usepackage[yyyymmdd]{datetime}  % format \today
 \usepackage[pscoord]{eso-pic}  % \placetextbox
 \usepackage{siunitx}
 
@@ -23,7 +22,6 @@
 \moderncvcolor{blue}
 \nopagenumbers{}
 \setlength{\hintscolumnwidth}{40mm}  % left column
-\renewcommand{\dateseparator}{--}  % format \today
 
 %%%%%%%%%%%%%%%%%%%%
 % Custom commands
@@ -176,7 +174,7 @@ PLACEHOLDER_MOBILE  % if \mobile{} is empty, the phone logo still shows up
 
 \placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
     \tiny{
-        Version PLACEHOLDER_VERSION_FR - \today - \input{|"git rev-parse --short HEAD"}
+        Version PLACEHOLDER_VERSION_FR - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
     }
 }}
 
