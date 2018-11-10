@@ -45,7 +45,7 @@ $(OUT_EN_PRIVATE): en.tex sed-script-file-private
 	mv texput.pdf $(OUT_EN_PRIVATE)
 	rm -f texput.*
 
-$(OUT_EN_PUBLIC): fr.tex sed-script-file-public
+$(OUT_EN_PUBLIC): en.tex sed-script-file-public
 	cat en.tex | sed -f sed-script-file-public | xelatex --shell-escape
 	mv texput.pdf $(OUT_EN_PUBLIC)
 	rm -f texput.*
