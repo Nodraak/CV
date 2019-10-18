@@ -31,21 +31,21 @@ fr: $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
 en: $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 
 $(OUT_FR_PRIVATE): fr.tex sed-script-file-private
-	cat fr.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --shell-escape
+	cat fr.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_FR_PRIVATE)
 	rm -f texput.*
 
 $(OUT_FR_PUBLIC): fr.tex sed-script-file-public
-	cat fr.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --shell-escape
+	cat fr.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_FR_PUBLIC)
 	rm -f texput.*
 
 $(OUT_EN_PRIVATE): en.tex sed-script-file-private
-	cat en.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --shell-escape
+	cat en.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_EN_PRIVATE)
 	rm -f texput.*
 
 $(OUT_EN_PUBLIC): en.tex sed-script-file-public
-	cat en.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --shell-escape
+	cat en.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_EN_PUBLIC)
 	rm -f texput.*

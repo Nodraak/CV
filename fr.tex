@@ -2,8 +2,9 @@
 
 \usepackage[french]{babel}
 \usepackage[margin=17mm]{geometry}
-\usepackage[pscoord]{eso-pic}  % \placetextbox
-\usepackage{siunitx}
+\usepackage[pscoord]{eso-pic}   % \placetextbox
+\usepackage{siunitx}            % micro
+\usepackage{enumitem}           % configure list
 
 %%%%%%%%%%%%%%%%%%%%
 % Set font
@@ -18,29 +19,35 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \moderncvstyle{classic}
-\moderncvcolor{blue}
+\moderncvcolor{blue} % color1=blue color2=gray
 \nopagenumbers{}
-\setlength{\hintscolumnwidth}{40mm}  % left column
 
 %%%%%%%%%%%%%%%%%%%%
 % Custom commands
 %%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\mysection}[1]{\section{\textbf{#1}}}
+\newcommand{\nodSetColumnWidth}{\setlength{\hintscolumnwidth}{50mm}}  % left column
 
-% mycvxp: date, title, company, missions/results, skills
+\newcommand{\itemMission}[1]{\item[\color{color1}$\bullet$] #1}
+\newcommand{\itemSkill}[1]{\item[\color{color1}$\circ$] \textit{#1}}
+
+% mycvxp: company, date, location, title, missions/results/skills
 \newcommand{\mycvxp}[5]{
     \cvitem{
         \begin{minipage}[t]{\linewidth}
-            #1 \newline{}                           % normal: date
-            \textbf{#2} \newline{}                  % bold: title
-            \textsc{#3} \smallskip{}                % textit: company
+            \raggedright
+            \textsc{#1} \newline{}              % company
+            #2 \newline{}                       % date
+            \textit{#3}                         % location
         \end{minipage}
     }{
         \begin{minipage}[t]{\linewidth}
-            - #4 \newline{}                         % missions/results
-            - \textit{#5} \smallskip{}              % textit: skills
+            \textbf{#4}                         % title
+            \begin{itemize}[topsep=0pt,itemsep=0pt,parsep=0pt]
+                #5                              % missions/results/skills
+            \end{itemize}
         \end{minipage}
+        \vspace{0pt}
     }
 }
 
@@ -61,22 +68,21 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \firstname{Adrien}
-\familyname{CHARDON}
+\familyname{\textsc{Chardon}}
 
 \title{\large
-    Je suis ingénieur jeune diplômé, passionné d'informatique et d'électronique.
-    Je recherche un stage de fin d'études ou un premier emploi pour avril 2019.
-    \newline \newline
-    \textbf{Objectif professionnel :} développement logiciel ou conception \newline
-    électronique appliqué au spatial (lanceurs, satellites, stations \newline
-    habitées, etc).
+    Adrien est un ingénieur en informatique et électronique, avec une expertise en systèmes embarqués.
+    Il est passionné par la robotique et le spatial, et s'intéresse à l'automatisation, le logiciel libre et la qualité logicielle.
+    \vspace{0.5\baselineskip} \newline{}
+    Il s'est spécialisé dans l'aérospatiale et est intéressé par les lanceurs et les sondes inter-planétaires.
 }
-\address{PLACEHOLDER_ADDRESS1_FR}{PLACEHOLDER_ADDRESS2_FR}
+
+%\address{PLACEHOLDER_ADDRESS1_FR}{PLACEHOLDER_ADDRESS2_FR}
+PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows up
 \email{PLACEHOLDER_EMAIL}
-PLACEHOLDER_MOBILE  % if \mobile{} is empty, the phone logo still shows up
 \homepage{cv.nodraak.fr/fr.pdf}
-\social[github]{Nodraak}
-\extrainfo{PLACEHOLDER_EXTRAINFO_FR} % date de naissance
+%\social[github]{Nodraak}
+%\extrainfo{PLACEHOLDER_EXTRAINFO_FR} % date de naissance
 
 %%%%%%%%%%%%%%%%%%%%
 % Content
@@ -84,88 +90,121 @@ PLACEHOLDER_MOBILE  % if \mobile{} is empty, the phone logo still shows up
 
 \begin{document}
 
-\makecvtitle
+% makecvtitle manually reimplemented, heavily copied from moderncv
+\makeatletter
 
-\vspace{-12mm}
+    \def\phonesdetails{}%
+        \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+            \protected@edef\phonesdetails{\phonesdetails\protect\makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+
+    \begin{minipage}[t]{.7\textwidth}
+        \raggedright
+        \namefont {\color{color0!60}\@firstname} {\color{color0!80}\@lastname}
+    \end{minipage}
+    \begin{minipage}[t]{.3\textwidth}
+        \raggedleft
+        \addressfont\color{color2}
+        \phonesdetails ~\\
+        \emailsymbol\emaillink{\@email} \\
+        \homepagesymbol\httplink{\@homepage}
+    \end{minipage}
+    \\[0.50em]
+    {\color{color2!50}\rule{\textwidth}{.25ex}}
+    \\[0.50em]
+    \titlestyle{\@title}
+
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%
-\mysection{Formation}
+\nodSetColumnWidth
+\section{Expériences}
 %%%%%%%%%%%%%%%%%%%%
 
-\subsection{Diplômes}
-\cventry{2018 - 2019 \\ \textit{En cours d'obtention}}{Master spécialisé}{TAS Astro : space systems design}{}{}{ISAE-Supaero - Toulouse, France}
-\cventry{2013 - 2018}{Diplôme d'ingénieur}{Majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
-\cventry{2015 - 2016}{Bachelor of Science}{Electronics \& IT}{}{}{Université d'Aalborg, département d'électronique - Aalborg, Danemark}
+\setlength{\hintscolumnwidth}{30mm}
 
-\subsection{Langues}
-\cventry{Français}{Langue maternelle}{}{}{}{}
-\cventry{Anglais}{Courant}{TOEIC: noté 935/990 en 2017}{}{}{}
-
-%%%%%%%%%%%%%%%%%%%%
-\mysection{Expériences}
-%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Expériences professionnelles}
-
+% TODO GMV
 \mycvxp
-    {Mars à août 2018}
-    {Stage}
-    {Communication \& \newline Systèmes}
+    {GMV}
+    {Depuis mai 2019}
+    {Madrid, Espagne}
+    {Ingénieur logiciel embarqué - Exomars et Sentinel 5}
     {
-        Conception et mise en production d'une plate-forme pour automatiser le déploiement
-        d'applications virtualisées et l'exécution des tests (unitaires, intégrations, ...).
+        \itemMission{Exomars: algorithmes GNC des étages de transfert (\textit{cruise}) et de descente}
+        \itemMission{Sentinel 5: logiciel applicatif de du spectromètre UVNS}
+        \itemMission{Développement logiciel: implémentation, tests unitaires et d'intégration, couverture de code et métriques}
+        \itemSkill{Compétences: C embarqué, standards de development logiciel (ECSS 40B, MISRA-C)}
     }
-    {Compétences : administration système (Linux Centos), Docker, Kubernetes, supervision (Prometheus, Grafana), Ansible, Git.}
 
 \mycvxp
-    {Mai à août 2017}
-    {Stage}
-    {Future Electronics}
-    {
-        Adaptation de l'OS Mbed-os sur le nouveau microcontrôleur PSoC 6 de Cypress.
-        Implémentation des périphériques GPIO, UART, Timer et Bluetooth BLE.
-    }
-    {Compétences : C, microcontrôleur ARM, Git.}
-
-\subsection{Projets étudiants et engagements associatifs}
-
-\mycvxp
+    {ECE Paris}
     {2017-2018}
-    {Chef de projet}
-    {ECE3Sat}
+    {Paris, France}
+    {Chef de projet - Satellite ECE3Sat}
     {
-        Conception et réalisation, avec 25 étudiants, d'un nano satellite pour étudier une nouvelle technique de désorbitation.
-        Responsable de l'équipe en charge de l'architecture du satellite et de l'ordinateur de bord.
+        \itemMission{Conception et réalisation, avec 25 étudiants, d'un nano satellite pour étudier une nouvelle technique de désorbitation}
+        \itemMission{Responsable de l'équipe en charge de l'architecture générale du satellite et de l'ordinateur de bord}
+        \itemSkill{Compétences : conception d'une architecture distribuée, dimensionnement et choix des \si{\micro}contrôleurs, management d'une équipe et coordination}
     }
-    {Compétences : conception d'une architecture distribuée, dimensionnement et choix des microcontrôleurs, management d'une équipe.}
 
 \mycvxp
+    {ECE Paris}
     {2016-2017}
-    {Président}
-    {iTeam}
+    {Paris, France}
+    {Projet étudiant - Robot Gali X}
     {
-        Président de l'association d'informatique et de promotion du logiciel libre à l'ECE.
-        Coordination de l'organisation d'événements et de conférences pour les étudiants.
+        \itemMission{Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
+        \itemMission{Responsable de la partie informatique avec notamment le développement d'une architecture
+        distribuée pour favoriser la réutilisation pour les années futures}
+        \itemMission{Implémentation d'une interface de télémétrie pour surveiller les paramètres du robot}
+        \itemMission{Implémentation d'un simulateur pour valider les performances (recompilation de code ARM pour exécution sur x86)}
+        \itemSkill{Compétences : C/C++ embarqué, Python (interface de télémétrie et simulateur), bus CAN, \si{\micro}contrôleurs ARM, git}
+        \itemSkill{Code source disponible : \url{https://github.com/Nodraak/Gali_X_Deoxys}}
     }
-    {Compétences : management d'une équipe, gestion d'une association.}
 
 \mycvxp
-    {2016-2017}
-    {Projet étudiant}
-    {Gali X}
+    {Future Electronics}
+    {Mai à août 2017}
+    {Paris, France}
+    {Stage}
     {
-        Conception et réalisation d'un robot autonome pour la coupe de France de Robotique.
-        Responsable de la partie informatique avec notamment le développement d'une architecture
-        distribuée pour favoriser la réutilisation pour les années futures.
+        \itemMission{Adaptation de l'OS Mbed-os sur le nouveau \si{\micro}contrôleur PSoC 6 de Cypress}
+        \itemMission{Implémentation des périphériques GPIO, UART, Timer et Bluetooth BLE}
+        \itemSkill{Compétences : interface C++, drivers C, \si{\micro}contrôleur ARM, Git}
     }
-    {Compétences : C++, Python, Git, \si{\micro}contrôleurs ARM, architecture distribuée, bus CAN.}
 
 %%%%%%%%%%%%%%%%%%%%
-\mysection{Passions}
+\nodSetColumnWidth
+\section{Formation}
 %%%%%%%%%%%%%%%%%%%%
 
-\cvitem{Projets personnels}{Informatique, robotique, aéromodélisme}
-\cvitem{Simulation spatiale}{Kerbal Space Program}
+\begin{minipage}[t]{.68\linewidth}
+
+\setlength{\hintscolumnwidth}{20mm}  % left column
+
+\cventry{2018 - 2019}{Master spécialisé}{TAS Astro : space systems design}{}{}{ISAE-Supaero - Toulouse, France}
+\cventry{2013 - 2018}{Diplôme d'ingénieur}{Majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
+\cventry{2015 - 2016}{Bachelor of Science}{Electronics \& IT}{}{}{Université d'Aalborg - Aalborg, Danemark}
+
+\end{minipage}{\color{color2}\rule[-75pt]{0.1pt}{90pt}}\begin{minipage}[t]{.30\linewidth}
+
+\setlength{\hintscolumnwidth}{15mm}  % left column
+
+\cventry{Français}{Langue maternelle}{}{}{}{}
+\cventry{Anglais}{Courant}{TOEIC: noté 935/990 \newline{} en 2017}{}{}{}
+\cventry{Espagnol}{Conversationnel}{}{}{}{}
+
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%
+\nodSetColumnWidth
+\section{Passions}
+%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\hintscolumnwidth}{20mm}
+
+\cvitem{Apprendre}{Projects d'informatique et de robotique}
+\cvitem{Ecriture}{Blog : \url{https://blog.nodraak.fr/}}
+\cvitem{Jouer}{Kerbal Space Program}
 
 %%%%%%%%%%%%%%%%%%%%
 % Version
