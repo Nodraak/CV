@@ -2,87 +2,22 @@
 
 \usepackage[french]{babel}
 \usepackage[margin=17mm]{geometry}
-\usepackage[pscoord]{eso-pic}   % \placetextbox
-\usepackage{siunitx}            % micro
-\usepackage{enumitem}           % configure list
 
-%%%%%%%%%%%%%%%%%%%%
-% Set font
-%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{mathpazo}  % Palatino font
-% \usepackage{kpfonts}
-% \usepackage{fontspec} \setmainfont{Corbel}
-
-%%%%%%%%%%%%%%%%%%%%
-% Configure Moderncv
-%%%%%%%%%%%%%%%%%%%%
-
-\moderncvstyle{classic}
-\moderncvcolor{blue} % color1=blue color2=gray
-\nopagenumbers{}
-
-%%%%%%%%%%%%%%%%%%%%
-% Custom commands
-%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\nodSetColumnWidth}{\setlength{\hintscolumnwidth}{50mm}}  % left column
-
-\newcommand{\itemMission}[1]{\item[\color{color1}$\bullet$] #1}
-\newcommand{\itemSkill}[1]{\item[\color{color1}$\circ$] \textit{#1}}
-
-% mycvxp: company, date, location, title, missions/results/skills
-\newcommand{\mycvxp}[5]{
-    \cvitem{
-        \begin{minipage}[t]{\linewidth}
-            \raggedright
-            \textsc{#1} \newline{}              % company
-            #2 \newline{}                       % date
-            \textit{#3}                         % location
-        \end{minipage}
-    }{
-        \begin{minipage}[t]{\linewidth}
-            \textbf{#4}                         % title
-            \begin{itemize}[topsep=0pt,itemsep=0pt,parsep=0pt]
-                #5                              % missions/results/skills
-            \end{itemize}
-        \end{minipage}
-        \vspace{0pt}
-    }
-}
-
-% for showing the version
-\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \setbox0=\hbox{#3}% Put <stuff> in a box
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}
-    ){
-        \vtop{{\null}\makebox[0pt][c]{#3}}
-    }%
-  }%
-}%
-
-%%%%%%%%%%%%%%%%%%%%
-% Personal data
-%%%%%%%%%%%%%%%%%%%%
-
-\firstname{Adrien}
-\familyname{\textsc{Chardon}}
+\input{common.tex}
 
 \title{\large
-    Adrien est un ingénieur en informatique et électronique, avec une expertise en systèmes embarqués.
+    Adrien est ingénieur en informatique et électronique, avec une expertise en systèmes embarqués.
     Il est passionné par la robotique et le spatial, et s'intéresse à l'automatisation, le logiciel libre et la qualité logicielle.
-    \vspace{0.5\baselineskip} \newline{}
+    \vspace{0.0\baselineskip} \newline{}
     Il s'est spécialisé dans l'aérospatiale et est intéressé par les lanceurs et les sondes inter-planétaires.
 }
 
-%\address{PLACEHOLDER_ADDRESS1_FR}{PLACEHOLDER_ADDRESS2_FR}
+%\address{PLACEHOLDER_ADDRESS1}{PLACEHOLDER_ADDRESS2}
 PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows up
 \email{PLACEHOLDER_EMAIL}
-\homepage{cv.nodraak.fr/fr.pdf}
+\homepage{PLACEHOLDER_HOMEPAGE}
 %\social[github]{Nodraak}
-%\extrainfo{PLACEHOLDER_EXTRAINFO_FR} % date de naissance
+%\extrainfo{PLACEHOLDER_EXTRAINFO} % birthday
 
 %%%%%%%%%%%%%%%%%%%%
 % Content
@@ -90,129 +25,103 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 
 \begin{document}
 
-% makecvtitle manually reimplemented, heavily copied from moderncv
-\makeatletter
-
-    \def\phonesdetails{}%
-        \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
-            \protected@edef\phonesdetails{\phonesdetails\protect\makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
-
-    \begin{minipage}[t]{.7\textwidth}
-        \raggedright
-        \namefont {\color{color0!60}\@firstname} {\color{color0!80}\@lastname}
-    \end{minipage}
-    \begin{minipage}[t]{.3\textwidth}
-        \raggedleft
-        \addressfont\color{color2}
-        \phonesdetails ~\\
-        \emailsymbol\emaillink{\@email} \\
-        \homepagesymbol\httplink{\@homepage}
-    \end{minipage}
-    \\[0.50em]
-    {\color{color2!50}\rule{\textwidth}{.25ex}}
-    \\[0.50em]
-    \titlestyle{\@title}
-
-\makeatother
+\makecvtitle
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Expériences}
+\nodSection{Expériences}
 %%%%%%%%%%%%%%%%%%%%
 
 \setlength{\hintscolumnwidth}{30mm}
 
-% TODO GMV
-\mycvxp
+\nodCvItem
     {GMV}
     {Depuis mai 2019}
     {Madrid, Espagne}
     {Ingénieur logiciel embarqué - Exomars et Sentinel 5}
     {
-        \itemMission{Exomars: algorithmes GNC des étages de transfert (\textit{cruise}) et de descente}
-        \itemMission{Sentinel 5: logiciel applicatif de du spectromètre UVNS}
-        \itemMission{Développement logiciel: implémentation, tests unitaires et d'intégration, couverture de code et métriques}
-        \itemSkill{Compétences: C embarqué, standards de development logiciel (ECSS 40B, MISRA-C)}
+        \nodItemMission{Exomars: algorithmes GNC des étages de transfert (\textit{cruise}) et de descente}
+        \nodItemMission{Sentinel 5: logiciel applicatif du spectromètre UVNS}
+        \nodItemMission{Développement logiciel: implémentation, tests unitaires et d'intégration, couverture de code et métriques qualité}
+        \nodItemSkill{Compétences: C embarqué, standards (ECSS 40B, MISRA-C)}
     }
 
-\mycvxp
+\nodCvItem
     {ECE Paris}
     {2017-2018}
     {Paris, France}
     {Chef de projet - Satellite ECE3Sat}
     {
-        \itemMission{Conception et réalisation, avec 25 étudiants, d'un nano satellite pour étudier une nouvelle technique de désorbitation}
-        \itemMission{Responsable de l'équipe en charge de l'architecture générale du satellite et de l'ordinateur de bord}
-        \itemSkill{Compétences : conception d'une architecture distribuée, dimensionnement et choix des \si{\micro}contrôleurs, management d'une équipe et coordination}
+        \nodItemMission{Conception et réalisation, avec 25 étudiants, d'un nano satellite pour étudier une nouvelle technique de désorbitation utilisant le champ magnétique terrestre}
+        \nodItemMission{Responsable de l'équipe en charge de l'architecture et de l'ordinateur de bord}
+        \nodItemMission{Implémentation du bus de communication interne avec CAN et ASN.1 pour assurer une communication fiable entre les sous-systèmes}
+        \nodItemSkill{Compétences : conception d'une architecture distribuée, dimensionnement et choix des \si{\micro}contrôleurs, management d'une équipe et coordination}
     }
 
-\mycvxp
+\nodCvItem
     {ECE Paris}
     {2016-2017}
     {Paris, France}
     {Projet étudiant - Robot Gali X}
     {
-        \itemMission{Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
-        \itemMission{Responsable de la partie informatique avec notamment le développement d'une architecture
+        \nodItemMission{Conception et réalisation d'un robot autonome pour la coupe de France de Robotique}
+        \nodItemMission{Responsable de la partie informatique avec notamment le développement d'une architecture
         distribuée pour favoriser la réutilisation pour les années futures}
-        \itemMission{Implémentation d'une interface de télémétrie pour surveiller les paramètres du robot}
-        \itemMission{Implémentation d'un simulateur pour valider les performances (recompilation de code ARM pour exécution sur x86)}
-        \itemSkill{Compétences : C/C++ embarqué, Python (interface de télémétrie et simulateur), bus CAN, \si{\micro}contrôleurs ARM, git}
-        \itemSkill{Code source disponible : \url{https://github.com/Nodraak/Gali_X_Deoxys}}
+        \nodItemMission{Implémentation d'une interface de télémétrie pour surveiller les paramètres du robot}
+        \nodItemMission{Implémentation d'un simulateur pour valider les performances (recompilation de code ARM pour exécution sur x86)}
+        \nodItemSkill{Compétences : C/C++ embarqué, Python (interface de télémétrie et simulateur), bus CAN, \si{\micro}contrôleurs ARM, Git}
+        \nodItemSkill{Code source disponible : \url{https://github.com/Nodraak/Gali_X_Deoxys}}
     }
 
-\mycvxp
+\nodCvItem
     {Future Electronics}
     {Mai à août 2017}
     {Paris, France}
     {Stage}
     {
-        \itemMission{Adaptation de l'OS Mbed-os sur le nouveau \si{\micro}contrôleur PSoC 6 de Cypress}
-        \itemMission{Implémentation des périphériques GPIO, UART, Timer et Bluetooth BLE}
-        \itemSkill{Compétences : interface C++, drivers C, \si{\micro}contrôleur ARM, Git}
+        \nodItemMission{Adaptation de l'OS Mbed-os sur le nouveau \si{\micro}contrôleur PSoC 6 de Cypress}
+        \nodItemMission{Implémentation des périphériques GPIO, UART, Timer et Bluetooth BLE}
+        \nodItemSkill{Compétences : interface C++, drivers C, \si{\micro}contrôleur ARM, Git}
     }
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Formation}
+\nodSection{Formation}
 %%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}[t]{.68\linewidth}
+\begin{minipage}[t]{.66\linewidth}
 
-\setlength{\hintscolumnwidth}{20mm}  % left column
+\setlength{\hintscolumnwidth}{20mm}
 
 \cventry{2018 - 2019}{Master spécialisé}{TAS Astro : space systems design}{}{}{ISAE-Supaero - Toulouse, France}
 \cventry{2013 - 2018}{Diplôme d'ingénieur}{Majeure systèmes embarqués}{}{}{ECE Paris, école d'ingénieurs - Paris, France}
 \cventry{2015 - 2016}{Bachelor of Science}{Electronics \& IT}{}{}{Université d'Aalborg - Aalborg, Danemark}
 
-\end{minipage}{\color{color2}\rule[-75pt]{0.1pt}{90pt}}\begin{minipage}[t]{.30\linewidth}
+\end{minipage}{\color{color2}\rule[-75pt]{0.1pt}{90pt}}\begin{minipage}[t]{.33\linewidth}
 
-\setlength{\hintscolumnwidth}{15mm}  % left column
+\setlength{\hintscolumnwidth}{18mm}
 
 \cventry{Français}{Langue maternelle}{}{}{}{}
-\cventry{Anglais}{Courant}{TOEIC: noté 935/990 \newline{} en 2017}{}{}{}
+\cventry{Anglais}{Courant}{TOEIC: noté \newline{} 935/990 en 2017}{}{}{}
 \cventry{Espagnol}{Conversationnel}{}{}{}{}
 
 \end{minipage}
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Passions}
+\nodSection{Passions}
 %%%%%%%%%%%%%%%%%%%%
 
-\setlength{\hintscolumnwidth}{20mm}
+\setlength{\hintscolumnwidth}{30mm}
 
-\cvitem{Apprendre}{Projects d'informatique et de robotique}
-\cvitem{Ecriture}{Blog : \url{https://blog.nodraak.fr/}}
+\cvitem{Apprendre et créer}{Projets d'informatique et de robotique}
+\cvitem{Écrire}{Blog : \url{https://blog.nodraak.fr/}}
 \cvitem{Jouer}{Kerbal Space Program}
 
 %%%%%%%%%%%%%%%%%%%%
 % Version
 %%%%%%%%%%%%%%%%%%%%
 
-\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+\nodPlaceBox{0.94}{0.18}{\rotatebox[origin=c]{90}{
     \tiny{
-        Version PLACEHOLDER_VERSION_FR - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
+        Version PLACEHOLDER_VERSION - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
     }
 }}
 

@@ -1,15 +1,11 @@
-# LaTex
-*.aux
-*.log
-*.out
-fr.pdf
-en.pdf
+# Private info ;)
+AdrienChardon-CV.pdf
+AdrienChardon-Resume.pdf
+personal-data-fr-private
+personal-data-en-private
+docs/
 
-# never commit thoses files!
-CV_AdrienChardon.pdf
-Resume_AdrienChardon.pdf
-sed-script-file-private
-
+# Unrelevant tests and files
 cvstyle/
 cvstyle_minimal/
 Examples/

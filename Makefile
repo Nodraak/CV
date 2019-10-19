@@ -1,51 +1,45 @@
+# The default target compiles four times:
+# * Two languages: fr, en
+# * Two flavors: with private infos or without
+# It applies the patch to add the personal info and compile
 
-OUT_FR_PRIVATE = CV_AdrienChardon.pdf
-OUT_FR_PUBLIC = CV_AdrienChardon_web.pdf
-OUT_EN_PRIVATE = Resume_AdrienChardon.pdf
-OUT_EN_PUBLIC = Resume_AdrienChardon_web.pdf
-
-OUT_FR = $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
-OUT_EN = $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
-OUT_ALL = $(OUT_FR) $(OUT_EN)
+OUT_FR_PRIVATE = AdrienChardon-CV.pdf
+OUT_FR_PUBLIC = AdrienChardon-CV-web.pdf
+OUT_EN_PRIVATE = AdrienChardon-Resume.pdf
+OUT_EN_PUBLIC = AdrienChardon-Resume-web.pdf
 
 .PHONY: all re clean fr en
 
-# By default (target "all") this works by compiling four times (two languages
-# and two flavors: with private infos or without)
-# It applies the patch to add the personal info, compile and save and then
-# reverts the patch
-
 all: fr en
 	@echo "== Compilation finished, now upload to diamant =="
-	@echo "scp $(OUT_FR_PUBLIC) agate:/var/www/cv/fr.pdf"
-	@echo "scp $(OUT_EN_PUBLIC) agate:/var/www/cv/en.pdf"
-
+	@echo "scp $(OUT_FR_PUBLIC) agate:/var/www/cv/AdrienChardon-CV.pdf"
+	@echo "scp $(OUT_EN_PUBLIC) agate:/var/www/cv/AdrienChardon-Resume.pdf"
 
 re: clean all
 
 clean:
-	rm -f *.aux *.log *.out $(OUT_ALL) fr.pdf en.pdf
+	rm -f *.aux *.log *.out fr.pdf en.pdf $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC) $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 
 fr: $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
 
 en: $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 
-$(OUT_FR_PRIVATE): fr.tex sed-script-file-private
-	cat fr.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
+$(OUT_FR_PRIVATE): common.tex fr.tex personal-data-fr-private
+	cat fr.tex | sed -f personal-data-fr-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_FR_PRIVATE)
 	rm -f texput.*
 
-$(OUT_FR_PUBLIC): fr.tex sed-script-file-public
-	cat fr.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
+$(OUT_FR_PUBLIC): common.tex fr.tex personal-data-fr-public
+	cat fr.tex | sed -f personal-data-fr-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_FR_PUBLIC)
 	rm -f texput.*
 
-$(OUT_EN_PRIVATE): en.tex sed-script-file-private
-	cat en.tex | sed -f sed-script-file-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
+$(OUT_EN_PRIVATE): common.tex en.tex personal-data-en-private
+	cat en.tex | sed -f personal-data-en-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_EN_PRIVATE)
 	rm -f texput.*
 
-$(OUT_EN_PUBLIC): en.tex sed-script-file-public
-	cat en.tex | sed -f sed-script-file-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
+$(OUT_EN_PUBLIC): common.tex en.tex personal-data-en-public
+	cat en.tex | sed -f personal-data-en-public | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT_EN_PUBLIC)
 	rm -f texput.*

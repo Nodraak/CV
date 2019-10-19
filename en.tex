@@ -2,73 +2,8 @@
 
 \usepackage[english]{babel}
 \usepackage[margin=17mm]{geometry}
-\usepackage[pscoord]{eso-pic}   % \placetextbox
-\usepackage{siunitx}            % micro
-\usepackage{enumitem}           % configure lists
 
-%%%%%%%%%%%%%%%%%%%%
-% Set font
-%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{mathpazo}  % Palatino font
-% \usepackage{kpfonts}
-% \usepackage{fontspec} \setmainfont{Corbel}
-
-%%%%%%%%%%%%%%%%%%%%
-% Configure Moderncv
-%%%%%%%%%%%%%%%%%%%%
-
-\moderncvstyle{classic}
-\moderncvcolor{blue} % color1=blue color2=gray
-\nopagenumbers{}
-
-%%%%%%%%%%%%%%%%%%%%
-% Custom commands
-%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\nodSetColumnWidth}{\setlength{\hintscolumnwidth}{50mm}}  % left column
-
-\newcommand{\itemMission}[1]{\item[\color{color1}$\bullet$] #1}
-\newcommand{\itemSkill}[1]{\item[\color{color1}$\circ$] \textit{#1}}
-
-% mycvxp: company, date, location, title, missions/results/skills
-\newcommand{\mycvxp}[5]{
-    \cvitem{
-        \begin{minipage}[t]{\linewidth}
-            \raggedright
-            \textsc{#1} \newline{}              % company
-            #2 \newline{}                       % date
-            \textit{#3}                         % location
-        \end{minipage}
-    }{
-        \begin{minipage}[t]{\linewidth}
-            \textbf{#4}                         % title
-            \begin{itemize}[topsep=0pt,itemsep=0pt,parsep=0pt]
-                #5                              % missions/results/skills
-            \end{itemize}
-        \end{minipage}
-        \vspace{0pt}
-    }
-}
-
-% for showing the version
-\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \setbox0=\hbox{#3}% Put <stuff> in a box
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}
-    ){
-        \vtop{{\null}\makebox[0pt][c]{#3}}
-    }%
-  }%
-}%
-
-%%%%%%%%%%%%%%%%%%%%
-% Personal data
-%%%%%%%%%%%%%%%%%%%%
-
-\firstname{Adrien}
-\familyname{\textsc{Chardon}}
+\input{common.tex}
 
 \title{\large
     Adrien is a software and electronics engineer, with an expertise in embedded systems.
@@ -77,12 +12,12 @@
     He recently specialized in aerospace and is interested in launchers and inter-planetary probes.
 }
 
-%\address{PLACEHOLDER_ADDRESS1_EN}{PLACEHOLDER_ADDRESS2_EN}
+%\address{PLACEHOLDER_ADDRESS1}{PLACEHOLDER_ADDRESS2}
 PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows up
 \email{PLACEHOLDER_EMAIL}
-\homepage{cv.nodraak.fr/en.pdf}
+\homepage{PLACEHOLDER_HOMEPAGE}
 %\social[github]{Nodraak}
-%\extrainfo{PLACEHOLDER_EXTRAINFO_EN} % no birthday if us
+%\extrainfo{PLACEHOLDER_EXTRAINFO} % birthday
 
 %%%%%%%%%%%%%%%%%%%%
 % Content
@@ -90,90 +25,65 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 
 \begin{document}
 
-% makecvtitle manually reimplemented, heavily copied from moderncv
-\makeatletter
-
-    \def\phonesdetails{}%
-        \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
-            \protected@edef\phonesdetails{\phonesdetails\protect\makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
-
-    \begin{minipage}[t]{.7\textwidth}
-        \raggedright
-        \namefont {\color{color0!60}\@firstname} {\color{color0!80}\@lastname}
-    \end{minipage}
-    \begin{minipage}[t]{.3\textwidth}
-        \raggedleft
-        \addressfont\color{color2}
-        \phonesdetails ~\\
-        \emailsymbol\emaillink{\@email} \\
-        \homepagesymbol\httplink{\@homepage}
-    \end{minipage}
-    \\[0.50em]
-    {\color{color2!50}\rule{\textwidth}{.25ex}}
-    \\[0.50em]
-    \titlestyle{\@title}
-
-\makeatother
+\makecvtitle
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Work Experiences}
+\nodSection{Work Experiences}
 %%%%%%%%%%%%%%%%%%%%
 
 \setlength{\hintscolumnwidth}{30mm}
 
-\mycvxp
+\nodCvItem
     {GMV}
     {Since May 2019}
     {Madrid, Spain}
     {On-board Software Engineer - Exomars and Sentinel 5}
     {
-        \itemMission{Exomars: GNC algorithms of the cruise and descent stages}
-        \itemMission{Sentinel 5: application software of the UVNS spectrometer}
-        \itemMission{Software development: features implementation, unit and integration tests, code coverage and metrics}
-        \itemSkill{Skills: embedded C, software development standards (ECSS 40B, MISRA-C)}
+        \nodItemMission{Exomars: GNC algorithms of the cruise and descent stages}
+        \nodItemMission{Sentinel 5: application software of the UVNS spectrometer}
+        \nodItemMission{Software development: features implementation, unit and integration tests, code coverage and quality metrics}
+        \nodItemSkill{Skills: embedded C, software development standards (ECSS 40B, MISRA-C)}
     }
 
-\mycvxp
+\nodCvItem
     {ECE Paris}
     {2017-2018}
     {Paris, France}
     {Project Leader - Smallsat ECE3Sat}
     {
-        \itemMission{Designed and built a nano satellite in order to study a new de-orbit technique}
-        \itemMission{Managed the team responsible for the overall satellite architecture and the on-board computer}
-        \itemMission{Implemented an on-board communication bus with CAN and ASN.1 to ensure reliable communications beetwen subsystems}
-        \itemSkill{Skills: distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination}
+        \nodItemMission{Designed and built a nano satellite in order to study a new de-orbit technique using Earth's magnetic field}
+        \nodItemMission{Managed the team responsible for the satellite architecture and the on-board computer}
+        \nodItemMission{Implemented the on-board communication bus with CAN and ASN.1 to ensure a reliable communication between subsystems}
+        \nodItemSkill{Skills: distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination}
     }
 
-\mycvxp
+\nodCvItem
     {ECE Paris}
     {2016-2017}
     {Paris, France}
     {Software Engineer - Robot Gali X}
     {
-        \itemMission{Designed and built an autonomous robot for the French Robotic cup}
-        \itemMission{Designed a distributed architecture to allow easier reuse for the next robots}
-        \itemMission{Implemented a telemetry GUI to monitor the robot status}
-        \itemMission{Implemented a simulator to assess the performances (recompilation of ARM code for execution on x86)}
-        \itemSkill{Skills: embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), CAN bus, ARM \si{\micro}controllers, Git}
-        \itemSkill{Source code available: \url{https://github.com/Nodraak/Gali_X_Deoxys}}
+        \nodItemMission{Designed and built an autonomous robot for the French Robotic cup}
+        \nodItemMission{Designed a distributed architecture to allow easier reuse for the next robots}
+        \nodItemMission{Implemented a telemetry GUI to monitor the robot status}
+        \nodItemMission{Implemented a simulator to assess the performances (recompilation of ARM code for execution on x86)}
+        \nodItemSkill{Skills: embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), CAN bus, ARM \si{\micro}controllers, Git}
+        \nodItemSkill{Source code available: \url{https://github.com/Nodraak/Gali_X_Deoxys}}
     }
 
-\mycvxp
+\nodCvItem
     {Future Electronics}
     {May-August 2017}
     {Paris, France}
     {Intern}
     {
-        \itemMission{Adapted the Mbed-os framework to the new PSoC 6 \si{\micro}controller from Cypress}
-        \itemMission{Implemented several peripherals such as GPIO, UART, Timer and Bluetooth BLE}
-        \itemSkill{Skills: C++ interface, C drivers, ARM \si{\micro}controller, Git}
+        \nodItemMission{Adapted the Mbed-os framework to the new PSoC 6 \si{\micro}controller from Cypress}
+        \nodItemMission{Implemented several peripherals such as GPIO, UART, Timer and Bluetooth BLE}
+        \nodItemSkill{Skills: C++ interface, C drivers, ARM \si{\micro}controller, Git}
     }
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Education}
+\nodSection{Education}
 %%%%%%%%%%%%%%%%%%%%
 
 \begin{minipage}[t]{.68\linewidth}
@@ -195,13 +105,12 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 \end{minipage}
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSetColumnWidth
-\section{Hobbies}
+\nodSection{Hobbies}
 %%%%%%%%%%%%%%%%%%%%
 
-\setlength{\hintscolumnwidth}{20mm}
+\setlength{\hintscolumnwidth}{35mm}
 
-\cvitem{Learning}{Computer science and robotics projects}
+\cvitem{Learning and making}{Software and robotics projects}
 \cvitem{Writing}{Blog: \url{https://blog.nodraak.fr}}
 \cvitem{Playing}{Kerbal Space Program}
 
@@ -209,9 +118,9 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 % Version
 %%%%%%%%%%%%%%%%%%%%
 
-\placetextbox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+\nodPlaceBox{0.94}{0.18}{\rotatebox[origin=c]{90}{
     \tiny{
-        Version PLACEHOLDER_VERSION_EN - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
+        Version PLACEHOLDER_VERSION - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
     }
 }}
 
