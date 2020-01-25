@@ -8,12 +8,10 @@ OUT_FR_PUBLIC = AdrienChardon-CV-web.pdf
 OUT_EN_PRIVATE = AdrienChardon-Resume.pdf
 OUT_EN_PUBLIC = AdrienChardon-Resume-web.pdf
 
-.PHONY: all re clean fr en
+.PHONY: all re clean fr en upload
 
 all: fr en
-	@echo "== Compilation finished, now upload to diamant =="
-	@echo "scp $(OUT_FR_PUBLIC) agate:/var/www/cv/AdrienChardon-CV.pdf"
-	@echo "scp $(OUT_EN_PUBLIC) agate:/var/www/cv/AdrienChardon-Resume.pdf"
+	echo "Compilation done. Upload with 'Make upload'"
 
 re: clean all
 
@@ -23,6 +21,11 @@ clean:
 fr: $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
 
 en: $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
+
+upload:
+	scp $(OUT_FR_PUBLIC) agate:/var/www/cv/AdrienChardon-CV.pdf
+	scp $(OUT_EN_PUBLIC) agate:/var/www/cv/AdrienChardon-Resume.pdf
+	scp index.html agate:/var/www/cv/index.html
 
 $(OUT_FR_PRIVATE): common.tex fr.tex personal-data-fr-private
 	cat fr.tex | sed -f personal-data-fr-private | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
