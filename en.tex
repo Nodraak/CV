@@ -1,15 +1,14 @@
 \documentclass[11pt, a4paper, sans]{moderncv}
 
 \usepackage[english]{babel}
-\usepackage[margin=17mm]{geometry}
+\usepackage[margin=17mm,top=15mm,bottom=15mm]{geometry}
 
 \input{common.tex}
 
 \title{\large
     Adrien is a software and electronics engineer, with an expertise in embedded systems.
-    He is interested in robots and space, and cares about automation, open source software and code quality.
-    \vspace{0.0\baselineskip} \newline{}
-    He recently specialized in aerospace and is interested in launchers and inter-planetary probes.
+    He is interested in robots, launchers and inter-planetary probes.
+    He cares about code quality, automation and open source software.
 }
 
 %\address{PLACEHOLDER_ADDRESS1}{PLACEHOLDER_ADDRESS2}
@@ -37,12 +36,11 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {GMV}
     {Since May 2019}
     {Madrid, Spain}
-    {Embedded Software Engineer - Exomars and Sentinel 5}
+    {Embedded Software Engineer - Exomars}
     {
-        \nodItemMission{Exomars cruise and descent modules: testing and validation of the GNC algorithms, coding, bug fixes and software quality metrics}
-        \nodItemMission{Exomars rover: interfacing the autonomous navigation libraries (CNES) with the rover platform (Airbus UK)}
-        \nodItemMission{Sentinel 5: application software managing the UVNS spectrometer}
-        \nodItemSkill{Skills: embedded C, unit and integration and testing, software development standards (ECSS 40B, MISRA-C)}
+        \nodItemMission{Exomars rover: as technical responsible I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a CI pipeline to ensure high quality code: running automated test on x86 and Sparc, tracking coverage and static analysis results, and automatically generating documentation.}
+        \nodItemMission{Exomars cruise and descent modules: I helped in the development of the GNC algorithms: code and bug fixes, tests and validation, and improvement of the software quality metrics.}
+        \nodItemSkill{Skills: programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Grmon + Leon 2 FT on Rasta), quality tools (Gitlab CI, Cppcheck, code coverage), software development standards (MISRA-C, ECSS-40B)}
     }
 
 \nodCvItem
@@ -64,23 +62,13 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Software Engineer - Robot Gali X}
     {
         \nodItemMission{Designed and built an autonomous robot for the French Robotic cup}
-        \nodItemMission{Designed a distributed architecture to allow easier reuse for the next robots}
+        \nodItemMission{Designed a distributed architecture to allow easier reuse for the future robots}
         \nodItemMission{Implemented a telemetry GUI to monitor the robot status}
         \nodItemMission{Implemented a simulator to assess the performances (recompilation of ARM code for execution on x86)}
         \nodItemSkill{Skills: embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), CAN bus, ARM \si{\micro}controllers, Git}
         \nodItemSkill{Video demo and source code available at \normalfont{\url{https://cv.nodraak.fr}}}
     }
 
-\nodCvItem
-    {Future Electronics}
-    {May-August 2017}
-    {Paris, France}
-    {Intern}
-    {
-        \nodItemMission{Adapted the Mbed-os framework to the new PSoC 6 \si{\micro}controller from Cypress}
-        \nodItemMission{Implemented several peripherals such as GPIO, UART, Timer and Bluetooth BLE}
-        \nodItemSkill{Skills: C++ interface, C drivers, ARM \si{\micro}controller, Git}
-    }
 
 %%%%%%%%%%%%%%%%%%%%
 \nodSection{Education}
@@ -110,8 +98,8 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 
 \setlength{\hintscolumnwidth}{35mm}
 
-\cvitem{Learning and making}{Software and robotics projects}
-\cvitem{Writing}{Blog: \url{https://blog.nodraak.fr}}
+\cvitem{Learning and making}{Software and robotics projects - Recently: learning Rust lang}
+\cvitem{Writing}{\url{https://blog.nodraak.fr}}
 \cvitem{Playing}{Kerbal Space Program}
 
 %%%%%%%%%%%%%%%%%%%%
