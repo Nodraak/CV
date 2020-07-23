@@ -26,28 +26,30 @@
 % Helpers
 %
 
-\newcommand{\nodSection}[1]{\setlength{\hintscolumnwidth}{50mm}\section{#1}}
+\newcommand{\nodSection}[1]{\setlength{\hintscolumnwidth}{50mm}\vspace{-5pt}\section{#1}}
 
 \newcommand{\nodItemMission}[1]{\item[\color{color1}$\bullet$] #1}
 \newcommand{\nodItemSkill}[1]{\item[\color{color1}$\circ$] \textit{#1}}
 
 % mycvxp: company, date, location, title, missions/results/skills
 \newcommand{\nodCvItem}[5]{
+    \textbf{#4} \newline{}                      % title
     \cvitem{
         \begin{minipage}[t]{\linewidth}
             \raggedright
+            \vspace{-5pt}
             \textsc{#1} \newline{}              % company
             #2 \newline{}                       % date
             \textit{#3}                         % location
         \end{minipage}
     }{
         \begin{minipage}[t]{\linewidth}
-            \textbf{#4}                         % title
+            \vspace{-5pt}
             \begin{itemize}[topsep=0pt,itemsep=0pt,parsep=0pt]
                 #5                              % missions/results/skills
             \end{itemize}
         \end{minipage}
-        \vspace{0pt}
+        \vspace{5pt}
     }
 }
 
