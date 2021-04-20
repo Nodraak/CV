@@ -1,7 +1,7 @@
 # used data
 s/PLACEHOLDER_MOBILE_NUMBER//
 s/PLACEHOLDER_EMAIL/adrienchardon AT mailoo.org/
-s/PLACEHOLDER_HOMEPAGE/cv.nodraak.fr\/fr.pdf/
+s/PLACEHOLDER_HOMEPAGE/cv.nodraak.fr/
 
 # curently unused data
 s/PLACEHOLDER_ADDRESS1//
