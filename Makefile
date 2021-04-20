@@ -8,6 +8,10 @@ OUT_FR_PUBLIC = AdrienChardon-CV-web.pdf
 OUT_EN_PRIVATE = AdrienChardon-Resume.pdf
 OUT_EN_PUBLIC = AdrienChardon-Resume-web.pdf
 
+REMOTE_HOST = agate
+REMOTE_FOLDER = /var/www/cv/
+
+
 .PHONY: all re clean fr en upload
 
 all: fr en
@@ -23,9 +27,10 @@ fr: $(OUT_FR_PRIVATE) $(OUT_FR_PUBLIC)
 en: $(OUT_EN_PRIVATE) $(OUT_EN_PUBLIC)
 
 upload:
-	scp $(OUT_FR_PUBLIC) agate:/var/www/cv/AdrienChardon-CV.pdf
-	scp $(OUT_EN_PUBLIC) agate:/var/www/cv/AdrienChardon-Resume.pdf
-	scp index.html agate:/var/www/cv/index.html
+	scp $(OUT_FR_PUBLIC)            $(REMOTE_HOST):$(REMOTE_FOLDER)/AdrienChardon-CV.pdf
+	scp $(OUT_EN_PUBLIC)            $(REMOTE_HOST):$(REMOTE_FOLDER)/AdrienChardon-Resume.pdf
+	scp static/index.html           $(REMOTE_HOST):$(REMOTE_FOLDER)/index.html
+	scp static/gali-prototype.mp4   $(REMOTE_HOST):$(REMOTE_FOLDER)/gali-prototype.mp4
 
 compile:
 	cat $(IN) | sed -f $(PERSONAL_DATA) | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
