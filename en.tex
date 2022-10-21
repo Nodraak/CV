@@ -5,8 +5,13 @@
 
 \input{common.tex}
 
+%%%%%%%%%%%%%%%%%%%%
+% Title and basic infos
+%%%%%%%%%%%%%%%%%%%%
+
 \title{\large
-    Adrien is a software and electronics engineer, with an expertise in embedded systems.
+    Adrien is a software and electronics engineer, with an expertise in embedded
+    and critical systems.
     He is interested in robots, launchers and inter-planetary probes.
     He cares about code quality, automation and open source software.
 }
@@ -17,6 +22,16 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 \homepage{PLACEHOLDER_HOMEPAGE}
 %\social[github]{Nodraak}
 %\extrainfo{PLACEHOLDER_EXTRAINFO} % birthday
+
+%%%%%%%%%%%%%%%%%%%%
+% Version
+%%%%%%%%%%%%%%%%%%%%
+
+\nodPlaceBox{0.94}{0.18}{\rotatebox[origin=c]{90}{
+    \tiny{
+        Version PLACEHOLDER_VERSION - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
+    }
+}}
 
 %%%%%%%%%%%%%%%%%%%%
 % Content
@@ -33,87 +48,105 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 \setlength{\hintscolumnwidth}{30mm}
 
 \nodCvItem
+    {PTS}
+    {Since 2021-01}
+    {Berlin, Germany}
+    {Software Engineer - ASTRIS kickstage}
+    {
+        \nodItemMission{\textit{
+            The ASTRIS kickstage is a 5 tons spacecraft developed by Ariane Group to be flown on Ariane 6 to provide additional capabilities and flexibility to payloads.
+            In collaboration with Ariane Group, \textbf{PTS designed the full avionics of ASTRIS} up to PDR.
+            The PTS developed avionics covered the \textbf{electronics of the OBC}, telemetry, power, data acquisition and valve and pyro control subsystems, as well the \textbf{low level software of the OBC, and complete software of the other subsystems}.
+        }}
+        \nodItemMission{Within the software team, I contributed to the following topics:}
+        \nodItemMission{\textbf{Architecture and design}: requirements flow down, functional architecture decomposition, design of the CANopen-based internal bus.}
+        \nodItemMission{\textbf{Documentation} (following ECSS standard): unit and validation test plans, software design document (SDD) and interface control document (ICD) ; With a focus on the Datapool, Telemetry pipeline and IOs drivers (UART, CAN, SPI).}
+        \nodItemMission{\textbf{Implementation and integration}: ARM uc BSPs (Zynq 7020, SmartFusion2), RTOS (RTEMS), NASA cFS, drivers (UART, CAN, SPI). Version control and CI (Git and GitLab), maintaining three execution targets for different levels of tests (x86/Linux, ARM/QEMU, ARM/Zynq), code coverage (GCOV), static analysis (Cppcheck, SonarQube, MISRA), UTs (VectorCast).}
+    }
+\nodCvItem
+    {PTS}
+    {Since 2021-01}
+    {Berlin, Germany}
+    {Software Engineer - CLAM (IoT for logistics)}
+    {
+        \nodItemMission{\textit{
+            CLAM is a monitoring and optimization solution for logistics (containers and trucks): it provides the container loading level, position, temperature, humidity, ...
+        }}
+        \nodItemMission{\textbf{As the main responsible for software}, I researched, designed and developed both the embedded software running in the containers and the backend to administrate the units and visualize the data:}
+        \nodItemMission{\textbf{Embedded software:} ESP32, GSM and GNSS, distance sensor (VL53), environmental sensors (temperature, humidity), IMU.}
+        \nodItemMission{\textbf{Backend:} Django, SQLite, Grafana, Nginx.}
+        \nodItemMission{\textbf{Electronics:} prototype PCB layout, routing and soldering, testing.}
+    }
+
+\nodCvItem
     {GMV}
-    {Since May 2019}
+    {2019-2020}
     {Madrid, Spain}
-    {Embedded Software Engineer - Exomars}
+    {Software Engineer - Exomars}
     {
         \nodItemMission{Exomars rover: as the \textbf{main technical responsible} I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a \textbf{CI pipeline to ensure high quality code and up to date reports}: running automated test on x86 and Sparc, tracking coverage and static analysis results, and automatically generating documentation.}
         \nodItemMission{Exomars cruise and descent modules: I \textbf{helped in the development of the GNC algorithms}: code and bug fixes, tests and validation, and improvement of the software quality metrics.}
-        \nodItemSkill{Skills: programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Leon 2 FT on Rasta), quality tools (Cppcheck, Gitlab CI, code coverage), software development standards (MISRA-C, ECSS-40B).}
+        \nodItemSkill{\textbf{Skills:} programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Leon 2 FT on Rasta), quality tools (Cppcheck, Gitlab CI, code coverage), software development standards (MISRA-C, ECSS-40B).}
     }
+
+\newpage
 
 \nodCvItem
     {ECE Paris}
     {2017-2018}
     {Paris, France}
-    {Project Leader - Smallsat ECE3Sat}
+    {Project Leader (Student) - Smallsat ECE3Sat}
     {
         \nodItemMission{In collaboration with a team of 25 people, I designed and built a nano satellite in order to study a new de-orbit technique using Earth's magnetic field.}
         \nodItemMission{
             \textbf{I managed the team} (5 people) responsible for the satellite architecture and the on-board computer.
             \textbf{We implemented the on-board communication} bus with CAN and ASN.1 to ensure a reliable communication between subsystems.
         }
-        \nodItemSkill{Skills: distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination.}
+        \nodItemSkill{\textbf{Skills:} distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination.}
     }
 
 \nodCvItem
     {ECE Paris}
     {2016-2017}
     {Paris, France}
-    {Software Engineer - Robot Gali X}
+    {Software Engineer (Student) - Robot Gali X}
     {
         \nodItemMission{With a team of 5, \textbf{we designed and built an autonomous robot} for the French Robotic cup.}
         \nodItemMission{\textbf{In charge of the software}, I designed a \textbf{distributed architecture} to allow easier reuse for the future robots.}
         \nodItemMission{I implemented a \textbf{telemetry GUI} to monitor the robot status and a \textbf{simulator} to assess the performances (recompilation of ARM code for execution on x86).}
-        \nodItemSkill{Skills: embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
+        \nodItemSkill{\textbf{Skills:} embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
         \nodItemSkill{Video demo and source code available at \normalfont{\url{https://cv.nodraak.fr}}}
     }
-
-\vspace{-10pt}
 
 %%%%%%%%%%%%%%%%%%%%
 \nodSection{Education}
 %%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}[t]{.68\linewidth}
+\setlength{\hintscolumnwidth}{30mm}
 
-\setlength{\hintscolumnwidth}{20mm}  % left column
+\subsection{Degrees}
 
-\cventry{2018 - 2019}{Advanced Master}{TAS Astro: space systems design}{}{}{ISAE-Supaero - Toulouse, France}
+\cventry{\centerline{2018}}{Advanced Master}{TAS Astro: space systems design}{}{}{ISAE-Supaero - Toulouse, France}
 \cventry{2013 - 2018}{Engineering Degree}{Majoring in embedded systems}{}{}{ECE Paris - Paris, France}
 \cventry{2015 - 2016}{Bachelor of Science}{Electronics \& IT}{}{}{Aalborg University - Aalborg, Denmark}
 
-\end{minipage}{\color{color2}\rule[-75pt]{0.1pt}{90pt}}\begin{minipage}[t]{.30\linewidth}
-
-\setlength{\hintscolumnwidth}{15mm}  % left column
+\subsection{Languages}
 
 \cventry{French}{Native}{}{}{}{}
-\cventry{English}{Fluent}{TOEIC: scored \newline{} 935/990 in 2017}{}{}{}
-\cventry{Spanish}{Conversational}{}{}{}{}
-\cventry{German}{Notions}{Eager to \newline{} improve}{}{}{}
-
-\end{minipage}
+\cventry{English}{Fluent (C2)}{}{}{}{}
+\cventry{German}{Conversational (B1)}{}{}{}{}
+\cventry{Spanish}{Conversational (B1)}{}{}{}{}
 
 %%%%%%%%%%%%%%%%%%%%
 \nodSection{Hobbies}
 %%%%%%%%%%%%%%%%%%%%
 
-\setlength{\hintscolumnwidth}{35mm}
+\setlength{\hintscolumnwidth}{30mm}
 
-\cvitem{Learning and making}{Software and robotics projects - Recently: learning Rust lang}
 \cvitem{Writing}{\url{https://blog.nodraak.fr}}
-\cvitem{Sports}{Roller skating, social dancing}
-%\cvitem{Playing}{Kerbal Space Program}
-
-%%%%%%%%%%%%%%%%%%%%
-% Version
-%%%%%%%%%%%%%%%%%%%%
-
-\nodPlaceBox{0.94}{0.18}{\rotatebox[origin=c]{90}{
-    \tiny{
-        Version PLACEHOLDER_VERSION - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
-    }
-}}
+\cvitem{Tourism}{Museums and cities}
+\cvitem{Sports}{Running (HM: 1h29), swing dancing, roller/ice skating}
+\cvitem{Learning and making}{Software and robotics projects - Recently: learning Rust lang}
+\cvitem{Playing}{Kerbal Space Program}
 
 \end{document}
