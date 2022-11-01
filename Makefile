@@ -34,6 +34,7 @@ upload:
 
 compile:
 	cat $(IN) | sed -f $(PERSONAL_DATA) | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
+	cat $(IN) | sed -f $(PERSONAL_DATA) | SOURCE_DATE_EPOCH='' xelatex --halt-on-error --shell-escape
 	mv texput.pdf $(OUT)
 	rm -f texput.*
 

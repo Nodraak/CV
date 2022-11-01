@@ -5,6 +5,9 @@
 \usepackage[pscoord]{eso-pic}   % \placetextbox
 \usepackage{siunitx}            % micro
 \usepackage{enumitem}           % configure lists
+\usepackage{lastpage}
+
+\PassOptionsToPackage{colorlinks, urlcolor=blue, linkcolor=gray}{hyperref}
 
 %
 % Font
@@ -20,7 +23,6 @@
 
 \moderncvstyle{classic}
 \moderncvcolor{blue} % color1=blue color2=gray
-\nopagenumbers{}
 
 %
 % Helpers
@@ -86,7 +88,7 @@
     \begin{minipage}[t]{.7\textwidth}
         \raggedright
         \namefont {\color{color0!60}\@firstname} {\color{color0!80}\@lastname}
-        \vspace{5mm}
+        \vspace{7mm}
     \end{minipage}
     % contact info
     \begin{minipage}[t]{.3\textwidth}

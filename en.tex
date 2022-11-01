@@ -1,20 +1,13 @@
 \documentclass[11pt, a4paper, sans]{moderncv}
 
 \usepackage[english]{babel}
-\usepackage[margin=17mm,top=15mm,bottom=15mm]{geometry}
+\usepackage[margin=20mm,top=15mm,bottom=15mm]{geometry}
 
 \input{common.tex}
 
 %%%%%%%%%%%%%%%%%%%%
-% Title and basic infos
+% Basic infos
 %%%%%%%%%%%%%%%%%%%%
-
-\title{\large
-    Adrien is a software and electronics engineer, with an expertise in embedded
-    and critical systems.
-    He is interested in robots, launchers and inter-planetary probes.
-    He cares about code quality, automation and open source software.
-}
 
 %\address{PLACEHOLDER_ADDRESS1}{PLACEHOLDER_ADDRESS2}
 PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows up
@@ -24,21 +17,26 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 %\extrainfo{PLACEHOLDER_EXTRAINFO} % birthday
 
 %%%%%%%%%%%%%%%%%%%%
-% Version
+% Version and page number
 %%%%%%%%%%%%%%%%%%%%
 
-\nodPlaceBox{0.94}{0.18}{\rotatebox[origin=c]{90}{
-    \tiny{
-        Version PLACEHOLDER_VERSION - \input{|"git log -1 --date=short | grep Date | cut -b 9-"} - \input{|"git rev-parse --short HEAD"}
-    }
+\cfoot{\vspace{-15pt}\small\itshape\textcolor{gray}{
+    Page \thepage\ of \pageref{LastPage}
+    - Version PLACEHOLDER_VERSION \input{|"git rev-parse --short HEAD"}\input{|"git log -1 --date=short | grep Date | cut -b 9-"}
 }}
 
 %%%%%%%%%%%%%%%%%%%%
-% Content
+% Content - First page
 %%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+\title{\large
+    Adrien is a software and electronics engineer, with an expertise in embedded
+    and critical systems.
+    He is interested in robots, launchers and inter-planetary probes.
+    He cares about code quality, automation and open source software.
+}
 \makecvtitle
 
 %%%%%%%%%%%%%%%%%%%%
@@ -84,12 +82,18 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Madrid, Spain}
     {Software Engineer - Exomars}
     {
-        \nodItemMission{Exomars rover: as the \textbf{main technical responsible} I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a \textbf{CI pipeline to ensure high quality code and up to date reports}: running automated test on x86 and Sparc, tracking coverage and static analysis results, and automatically generating documentation.}
-        \nodItemMission{Exomars cruise and descent modules: I \textbf{helped in the development of the GNC algorithms}: code and bug fixes, tests and validation, and improvement of the software quality metrics.}
+        \nodItemMission{\textbf{Exomars rover}: as the \textbf{main technical responsible}, I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a \textbf{CI pipeline to ensure high quality code and up to date reports}: running automated test on x86 and Sparc, tracking coverage and static analysis results, and automatically generating documentation.}
+        \nodItemMission{\textbf{Exomars cruise and descent modules}: I \textbf{helped in the development of the GNC}: coding, bug fixes, testing, validation, and improvement of the software quality metrics.}
         \nodItemSkill{\textbf{Skills:} programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Leon 2 FT on Rasta), quality tools (Cppcheck, Gitlab CI, code coverage), software development standards (MISRA-C, ECSS-40B).}
     }
 
+%%%%%%%%%%%%%%%%%%%%
+% Content - Second page
+%%%%%%%%%%%%%%%%%%%%
+
 \newpage
+\title{}
+\makecvtitle
 
 \nodCvItem
     {ECE Paris}
@@ -97,10 +101,10 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Paris, France}
     {Project Leader (Student) - Smallsat ECE3Sat}
     {
-        \nodItemMission{In collaboration with a team of 25 people, I designed and built a nano satellite in order to study a new de-orbit technique using Earth's magnetic field.}
+        \nodItemMission{In collaboration with a team of 25 people, I designed and built a \textbf{nano satellite} in order to study a new de-orbit technique using Earth's magnetic field.}
         \nodItemMission{
             \textbf{I managed the team} (5 people) responsible for the satellite architecture and the on-board computer.
-            \textbf{We implemented the on-board communication} bus with CAN and ASN.1 to ensure a reliable communication between subsystems.
+            \textbf{We implemented the on-board communication bus} with CAN and ASN.1 to ensure a reliable communication between the subsystems.
         }
         \nodItemSkill{\textbf{Skills:} distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination.}
     }
@@ -111,7 +115,7 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Paris, France}
     {Software Engineer (Student) - Robot Gali X}
     {
-        \nodItemMission{With a team of 5, \textbf{we designed and built an autonomous robot} for the French Robotic cup.}
+        \nodItemMission{With a team of 5, \textbf{we built an autonomous robot} for the French Robotic cup.}
         \nodItemMission{\textbf{In charge of the software}, I designed a \textbf{distributed architecture} to allow easier reuse for the future robots.}
         \nodItemMission{I implemented a \textbf{telemetry GUI} to monitor the robot status and a \textbf{simulator} to assess the performances (recompilation of ARM code for execution on x86).}
         \nodItemSkill{\textbf{Skills:} embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
