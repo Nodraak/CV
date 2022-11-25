@@ -40,7 +40,7 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 \makecvtitle
 
 %%%%%%%%%%%%%%%%%%%%
-\nodSection{Work Experiences}
+\nodSection{Work Experience}
 %%%%%%%%%%%%%%%%%%%%
 
 \setlength{\hintscolumnwidth}{30mm}
@@ -51,29 +51,29 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Berlin, Germany}
     {Software Engineer - ASTRIS kickstage}
     {
-        \nodItemMission{\textit{
-            The ASTRIS kickstage is a 5 tons spacecraft developed by Ariane Group to be flown on Ariane 6 to provide additional capabilities and flexibility to payloads.
-            In collaboration with Ariane Group, \textbf{PTS designed the full avionics of ASTRIS} up to PDR.
-            The PTS developed avionics covered the \textbf{electronics of the OBC}, telemetry, power, data acquisition and valve and pyro control subsystems, as well the \textbf{low level software of the OBC, and complete software of the other subsystems}.
+        \nodItem{\textit{%
+            The ASTRIS kickstage is a 5 tons spacecraft developed by ArianeGroup to be flown on Ariane 6 to provide additional capabilities and flexibility to payloads.
+            In collaboration with ArianeGroup, \textbf{PTS designed the full avionics of ASTRIS} up to PDR.
+            The PTS developed avionics covered the \textbf{electronics of the OBC}, the power, data acquisition and valves and pyros control subsystems, as well the \textbf{low-level software of the OBC, and complete software of the other subsystems}.
         }}
-        \nodItemMission{Within the software team, I contributed to the following topics:}
-        \nodItemMission{\textbf{Architecture and design}: requirements flow down, functional architecture decomposition, design of the CANopen-based internal bus.}
-        \nodItemMission{\textbf{Documentation} (following ECSS standard): unit and validation test plans, software design document (SDD) and interface control document (ICD) ; With a focus on the Datapool, Telemetry pipeline and IOs drivers (UART, CAN, SPI).}
-        \nodItemMission{\textbf{Implementation and integration}: ARM uc BSPs (Zynq 7020, SmartFusion2), RTOS (RTEMS), NASA cFS, drivers (UART, CAN, SPI). Version control and CI (Git and GitLab), maintaining three execution targets for different levels of tests (x86/Linux, ARM/QEMU, ARM/Zynq), code coverage (GCOV), static analysis (Cppcheck, SonarQube, MISRA), UTs (VectorCast).}
+        \nodItem{Within the software team, I contributed to the following topics:}
+        \nodItem{\textbf{Architecture and design}: requirements flow down, functional architecture decomposition, design of the CANopen-based internal bus of the avionics.}
+        \nodItem{\textbf{Documentation} (following ECSS standard): software unit and validation test plans (SUITP / SVTP), software design document (SDD) and interface control documents (ICD) ; With a focus on the IOs drivers (UART, CAN, SPI), Datapool and Telemetry pipeline.}
+        \nodItem{\textbf{Implementation and integration}: ARM \si{\micro}controllers BSP (Zynq 7020, SmartFusion2), RTOS (RTEMS), drivers (UART, CAN, SPI). Version control and CI (Git and GitLab), maintaining three execution targets for different levels of tests (x86/Linux, ARM/QEMU, ARM/Zynq), code coverage (GCOV), static analysis (Cppcheck, SonarQube, MISRA), unit tests (VectorCast).}
     }
 \nodCvItem
     {PTS}
     {Since 2021-01}
     {Berlin, Germany}
-    {Software Engineer - CLAM (IoT for logistics)}
+    {Software Engineer - CLAM (IoT solution for logistics)}
     {
-        \nodItemMission{\textit{
-            CLAM is a monitoring and optimization solution for logistics (containers and trucks): it provides the container loading level, position, temperature, humidity, ...
+        \nodItem{\textit{%
+            CLAM is a monitoring and optimization solution for logistics: it provides the position, temperature, humidity, etc of the container or truck, as well as its loading level.
         }}
-        \nodItemMission{\textbf{As the main responsible for software}, I researched, designed and developed both the embedded software running in the containers and the backend to administrate the units and visualize the data:}
-        \nodItemMission{\textbf{Embedded software:} ESP32, GSM and GNSS, distance sensor (VL53), environmental sensors (temperature, humidity), IMU.}
-        \nodItemMission{\textbf{Backend:} Django, SQLite, Grafana, Nginx.}
-        \nodItemMission{\textbf{Electronics:} prototype PCB layout, routing and soldering, testing.}
+        \nodItem{\textbf{As the main responsible for the software}, I researched, designed and developed both the embedded software running in the containers and the backend to administrate the units and visualize the data.}
+        \nodItem{\textbf{Embedded software:} ESP32, GSM and GNSS modules, distance sensor (VL53), environmental sensors (temperature, humidity), IMU.}
+        \nodItem{\textbf{Backend software:} Django, SQLite, Grafana, Nginx.}
+        \nodItem{\textbf{Electronics:} prototype PCB layout, routing and soldering, testing.}
     }
 
 \nodCvItem
@@ -82,9 +82,9 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Madrid, Spain}
     {Software Engineer - Exomars}
     {
-        \nodItemMission{\textbf{Exomars rover}: as the \textbf{main technical responsible}, I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a \textbf{CI pipeline to ensure high quality code and up to date reports}: running automated test on x86 and Sparc, tracking coverage and static analysis results, and automatically generating documentation.}
-        \nodItemMission{\textbf{Exomars cruise and descent modules}: I \textbf{helped in the development of the GNC}: coding, bug fixes, testing, validation, and improvement of the software quality metrics.}
-        \nodItemSkill{\textbf{Skills:} programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Leon 2 FT on Rasta), quality tools (Cppcheck, Gitlab CI, code coverage), software development standards (MISRA-C, ECSS-40B).}
+        \nodItem{\textbf{Exomars rover}: as the \textbf{main technical responsible}, I developed and validated a middleware to interface the autonomous navigation libraries (CNES) with the rover platform (Airbus UK). During development, I configured a \textbf{CI pipeline to ensure high quality code and up to date reports}: running automated test on x86 and SPARC, tracking coverage and static analysis results, and automatically generating documentation.}
+        \nodItem{\textbf{Exomars cruise and descent modules}: I \textbf{helped in the development of the GNC}: coding, bug fixes, testing, validation, and improvement of the software quality metrics.}
+        \nodItem{\textbf{Skills:} programming (embedded C, Python), unit and integration testing (VectorCast, Tsim, Leon 2 FT on Rasta board), quality tools (Cppcheck, Gitlab CI, code coverage), software development standards (MISRA-C, ECSS-40B).}
     }
 
 %%%%%%%%%%%%%%%%%%%%
@@ -101,12 +101,12 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Paris, France}
     {Project Leader (Student) - Smallsat ECE3Sat}
     {
-        \nodItemMission{In collaboration with a team of 25 people, I designed and built a \textbf{nano satellite} in order to study a new de-orbit technique using Earth's magnetic field.}
-        \nodItemMission{
+        \nodItem{In collaboration with a team of 25 people, I designed and built a \textbf{nano satellite} in order to study a new de-orbit technique using Earth's magnetic field.}
+        \nodItem{
             \textbf{I managed the team} (5 people) responsible for the satellite architecture and the on-board computer.
             \textbf{We implemented the on-board communication bus} with CAN and ASN.1 to ensure a reliable communication between the subsystems.
         }
-        \nodItemSkill{\textbf{Skills:} distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination.}
+        \nodItem{\textbf{Skills:} distributed architecture design, sizing and \si{\micro}controllers choice, team management and coordination.}
     }
 
 \nodCvItem
@@ -115,11 +115,11 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
     {Paris, France}
     {Software Engineer (Student) - Robot Gali X}
     {
-        \nodItemMission{With a team of 5, \textbf{we built an autonomous robot} for the French Robotic cup.}
-        \nodItemMission{\textbf{In charge of the software}, I designed a \textbf{distributed architecture} to allow easier reuse for the future robots.}
-        \nodItemMission{I implemented a \textbf{telemetry GUI} to monitor the robot status and a \textbf{simulator} to assess the performances (recompilation of ARM code for execution on x86).}
-        \nodItemSkill{\textbf{Skills:} embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
-        \nodItemSkill{Video demo and source code available at \normalfont{\url{https://cv.nodraak.fr}}}
+        \nodItem{With a team of 5, \textbf{we built an autonomous robot} for the French Robotic cup.}
+        \nodItem{\textbf{In charge of the software}, I designed a \textbf{distributed architecture} to allow easier reuse for the future robots.}
+        \nodItem{I implemented a \textbf{telemetry GUI} to monitor the robot status and a \textbf{simulator} to assess the performances (recompilation of ARM code for execution on x86).}
+        \nodItem{\textbf{Skills:} embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
+        \nodItem{Video demo and source code available at \normalfont{\url{https://cv.nodraak.fr}}}
     }
 
 %%%%%%%%%%%%%%%%%%%%
