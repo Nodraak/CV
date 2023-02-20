@@ -47,9 +47,11 @@
         .footer .icon svg {
             width: 1.5rem;  /* Fix a random Firefox Android bug */
         }
-        /* Overwrite margings and paddings */
+        /* Overwrite margins and paddings */
         .hero-body, .section, .footer {
-            padding: 1.5rem 3rem;  /* defaults: hero-body=3rem ; .section="3rem 1.5rem" ; .footer="6rem" */
+            /* defaults: 3rem */
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -83,7 +85,7 @@
                     <p class="mt-5">
                         <strong>I am currently looking for a position as an aerospace engineer.</strong>
                         I am the most efficient when writing embedded software.
-                        But I have a strong interest in contributing to a project from start to finish (requirements, system engineering, work packages and schedule, testing and validation, operations, ...).
+                        But I also have a strong interest in contributing to a project from start to finish (requirements, system engineering, work packages and schedule, testing and validation, operations, ...).
                     </p>
                 </div>
 
@@ -92,7 +94,9 @@
                 <div class="column nodraak-cv">
                     <div class="block">
                         <figure class="image">
-                            <img src="./cv-AdrienChardon-Resume-web-1.jpg" alt="AdrienChardon's Resume">
+                            <a href="https://cv.nodraak.fr/en.pdf">
+                                <img src="./cv-AdrienChardon-Resume-web-1.jpg" alt="AdrienChardon's Resume">
+                            </a>
                         </figure>
                     </div>
                     <div class="block">
@@ -124,7 +128,9 @@
                         <div class="card-image">
                             <figure class="image is-16by9">
                                 <!-- TODO -->
-                                <img src="project-blog.png" alt="Adrien Chardon's blog's homepage">
+                                <a href="https://blog.nodraak.fr/">
+                                    <img src="project-blog.png" alt="Adrien Chardon's blog's homepage">
+                                </a>
                             </figure>
                         </div>
                         <div class="card-content">
@@ -159,7 +165,9 @@
                         <div class="card-image">
                             <figure class="image is-16by9">
                                 <!-- 1680/900 - https://blog.nodraak.fr/images/2020/08/aerospace-sim/GNC.svg -->
-                                <img src="./project-GNC.svg" alt="Canonical GNC diagram">
+                                <a href="https://blog.nodraak.fr/series/aerospace-simulator/">
+                                    <img src="./project-GNC.svg" alt="Canonical GNC diagram">
+                                </a>
                             </figure>
                         </div>
                         <div class="card-content">
@@ -196,7 +204,9 @@
                         <div class="card-image">
                             <figure class="image is-16by9">
                                 <!-- 1200/900 - https://github.com/Nodraak/Running/blob/master/build/trainings-1-distance-and-milage.png -->
-                                <img src="./project-trainings-1-distance-and-milage.png" alt="Training distance and mileage">
+                                <a href="https://github.com/Nodraak/Running">
+                                    <img src="./project-trainings-1-distance-and-milage.png" alt="Training distance and mileage">
+                                </a>
                             </figure>
                         </div>
                         <div class="card-content">
@@ -233,7 +243,9 @@
                         <div class="card-image">
                             <figure class="image is-16by9">
                                 <!-- 1280/720 - ffmpeg -i static/gali-prototype.mp4 -vf fps=1 out/project-gali-%03d.jpg -->
-                                <img src="./project-gali-014.jpg" alt="Robot Gali">
+                                <a href="./project-gali-prototype.mp4">
+                                    <img src="./project-gali-014.jpg" alt="Robot Gali">
+                                </a>
                             </figure>
                         </div>
                         <div class="card-content">
@@ -275,8 +287,8 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <span>
-                <a href="mailto:<firstname><lastname>@mailoo.org">
-                    &lt;firstname&gt;&lt;lastname&gt;@mailoo.org
+                <a href="mailto:adrienchardon AT mailoo.org">
+                    adrienchardon AT mailoo.org
                 </a>
             </span>
         </div>
