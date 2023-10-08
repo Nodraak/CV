@@ -53,8 +53,22 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
 \setlength{\hintscolumnwidth}{30mm}
 
 \nodCvItem
+    {Reflex Aerospace}
+    {2023-04 - Present}
+    {Berlin, Germany}
+    {Senior Software Engineer - SIGI satellite}
+    {
+        \nodItem{\textit{%
+            Contributing to the SIGI mission, Reflex's first demonstrator.
+            The mission, a 120 kg satellite to be launch in fall 2024, will prove the avionics (designed and manufactured in-house), as well as fly a customer payload.
+        }}
+        \nodItem{\textbf{Architecture and development} of the software, with a focus on mission-level features (internal communication bus, TM/TC-ground chain, datapool, thermal/power/etc subsystems, integration of Matlab/Simulink-generated code).}
+        \nodItem{\textbf{Testing and quality assurance}: bring-up of hardware, SIL and HIL testing, development of a custom embedded systems testing framework, code reviews}.
+        \nodItem{\textbf{Technologies}: ARM microcontrollers (Zynq Ultrascale+, TMS570), RTEMS, NASA cFS, C, Python, Rust, Git, CMake.}
+    }
+\nodCvItem
     {PTS}
-    {2021-01 - 2023-01}
+    {2021-01 - 2023-03}
     {Berlin, Germany}
     {Software Engineer - ASTRIS kickstage}
     {
@@ -68,20 +82,20 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
         \nodItem{\textbf{Documentation} (following ECSS standard): software unit and validation test plans (SUITP / SVTP), software design document (SDD) and interface control documents (ICD) ; With a focus on the IOs drivers (UART, CAN, SPI), Datapool and Telemetry pipeline.}
         \nodItem{\textbf{Implementation and integration}: ARM \si{\micro}controllers BSP (Zynq 7020, SmartFusion2), RTOS (RTEMS), drivers (UART, CAN, SPI). Version control and CI (Git and GitLab), maintaining three execution targets for different levels of tests (x86/Linux, ARM/QEMU, ARM/Zynq), code coverage (GCOV), static analysis (Cppcheck, SonarQube, MISRA), unit tests (VectorCast).}
     }
-\nodCvItem
-    {PTS}
-    {2021-01 - 2023-01}
-    {Berlin, Germany}
-    {Software Engineer - CLAM (IoT solution for logistics)}
-    {
-        \nodItem{\textit{%
-            CLAM is a monitoring and optimization solution for logistics: it provides the position, temperature, humidity, etc of the container or truck, as well as its loading level.
-        }}
-        \nodItem{\textbf{As the main responsible for the software}, I researched, designed and developed both the embedded software running in the containers and the backend to administrate the units and visualize the data.}
-        \nodItem{\textbf{Embedded software:} ESP32, GSM and GNSS modules, distance sensor (VL53), environmental sensors (temperature, humidity), IMU.}
-        \nodItem{\textbf{Backend software:} Django, SQLite, Grafana, Nginx.}
-        \nodItem{\textbf{Electronics:} prototype PCB layout, routing and soldering, testing.}
-    }
+% \nodCvItem
+%     {PTS}
+%     {2021-01 - 2023-01}
+%     {Berlin, Germany}
+%     {Software Engineer - CLAM (IoT solution for logistics)}
+%     {
+%         \nodItem{\textit{%
+%             CLAM is a monitoring and optimization solution for logistics: it provides the position, temperature, humidity, etc of the container or truck, as well as its loading level.
+%         }}
+%         \nodItem{\textbf{As the main responsible for the software}, I researched, designed and developed both the embedded software running in the containers and the backend to administrate the units and visualize the data.}
+%         \nodItem{\textbf{Embedded software:} ESP32, GSM and GNSS modules, distance sensor (VL53), environmental sensors (temperature, humidity), IMU.}
+%         \nodItem{\textbf{Backend software:} Django, SQLite, Grafana, Nginx.}
+%         \nodItem{\textbf{Electronics:} prototype PCB schematic and routing (Kickad), soldering and testing.}
+%     }
 
 \nodCvItem
     {GMV}
@@ -127,6 +141,7 @@ PLACEHOLDER_MOBILE_NUMBER  % if \mobile{} is empty, the phone logo still shows u
         \nodItem{I implemented a \textbf{telemetry GUI} to monitor the robot status and a \textbf{simulator} to assess the performances (recompilation of ARM code for execution on x86).}
         \nodItem{\textbf{Skills:} embedded C/C++, Python (telemetry GUI, software-in-the-loop simulation), drivers for CAN bus and other peripherals, ARM \si{\micro}controllers, Git.}
         \nodItem{Video demo and source code available at \normalfont{\url{https://cv.nodraak.fr}}}
+        % Mbed OS
     }
 
 %%%%%%%%%%%%%%%%%%%%
